@@ -1,93 +1,98 @@
-/* Global Styles */
+/* General reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
 }
 
+/* Body Styles */
 body {
-    background-color: #f3f3f3; /* Light grey for background */
-    color: #333333; /* Dark grey text */
+    font-family: 'Times New Roman', Times, serif; /* Fallback to Times New Roman */
+    background-color: #f4acb7;
+    color: #003e1f;
     line-height: 1.6;
-}
-
-/* Header Styles */
-header {
-    background-color: #333333; /* Dark grey header */
-    color: white;
+    font-size: 16px;
     padding: 20px;
-    text-align: center;
 }
 
-header .logo {
-    font-size: 2em;
-    font-weight: bold;
-    color: #ff6347; /* Tomato red for emphasis */
+/* Header and Navigation */
+header {
+    background-color: #6b9080;
+    padding: 20px 0;
 }
 
-nav ul {
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-family: 'Garamond', serif;
+    font-size: 24px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+ul {
     list-style: none;
-    margin-top: 10px;
+    display: flex;
 }
 
-nav ul li {
-    display: inline;
-    margin-right: 20px;
+ul li {
+    margin: 0 15px;
 }
 
-nav ul li a {
+ul li a {
     text-decoration: none;
-    color: white;
-    font-size: 1.2em;
+    color: #fff;
+    font-family: 'Garamond', serif;
+    font-weight: bold;
+    transition: all 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: #ff6347; /* Hover color */
+ul li a:hover {
+    color: #b8336a; /* Shimmery hover effect */
 }
 
 /* Main Content */
 main {
-    padding: 50px;
-    text-align: center;
-}
-
-h1 {
-    font-size: 3em;
-    color: #ff6347;
+    margin-top: 30px;
 }
 
 section {
-    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
-section h2 {
-    font-size: 2em;
-    color: #333;
-    margin-bottom: 20px;
+h1, h2 {
+    font-family: 'Garamond', serif;
+    color: #003e1f;
 }
 
-section p {
-    font-size: 1.2em;
-    color: #555;
+h1 {
+    font-size: 36px;
 }
 
-/* Buttons */
-button {
-    background-color: #ff6347; /* Button color */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2em;
-    cursor: pointer;
+h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
 }
 
-button:hover {
-    background-color: #e55347; /* Darker shade for hover effect */
+p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
 }
 
 /* Footer Styles */
 footer {
-    background-c
-
+    background-color: #003e1f;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
