@@ -17,8 +17,22 @@ body {
 
 /* Header and Navigation */
 header {
-    background-color: #6b9080;
-    padding: 20px 0;
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Apply the animation to the logo */
+.logo {
+    font-family: 'Georgia', serif;
+    font-size: 3rem;
+    color: #6b9080;
+    display: inline-block;
+    animation: spin 5s infinite linear; 
 }
 
 nav {
