@@ -145,3 +145,28 @@ button {
 button:hover {
     transform: scale(1.1);
 }
+    /* Custom glittery cursor */
+body {
+    cursor: url('images/glittery-cursor.png'), auto; /* Path to your cursor image */
+}
+    cursor: url('images/glittery-cursor.png'), pointer;
+}
+
+/* Centering the heading */
+.fade-heading {
+    text-align: center; /* Center horizontally */
+    margin-top: 20%; /* Adjust this to center vertically */
+    font-family: "Times New Roman", "Garamond", serif; /* Fonts */
+    font-size: 3rem; /* Adjust size */
+    color: #b8336a; /* Choose your color */
+    animation: fadeInOut 3s infinite; /* Apply animation */
+}
+/* Fade-in and fade-out animation */
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0; /* Fully transparent */
+    }
+    50% {
+        opacity: 1; /* Fully visible */
+    }
+}
