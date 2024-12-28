@@ -147,19 +147,19 @@ button:hover {
 }
     /* Custom glittery cursor */
 body {
-    cursor: url('images/glittery-cursor.png'), auto; /* Path to your cursor image */
+    cursor: url('cursor.png'), auto;
 }
-    cursor: url('images/glittery-cursor.png'), pointer;
+    cursor: url('cursor.png'), pointer;
 }
 
 /* Centering the heading */
 .fade-heading {
-    text-align: center; /* Center horizontally */
-    margin-top: 20%; /* Adjust this to center vertically */
-    font-family: "Times New Roman", "Garamond", serif; /* Fonts */
-    font-size: 3rem; /* Adjust size */
-    color: #b8336a; /* Choose your color */
-    animation: fadeInOut 3s infinite; /* Apply animation */
+    text-align: center; 
+    margin-top: 10%; 
+    font-family: "Times New Roman", "Garamond", serif; 
+    font-size: 3rem; 
+    color: #b8336a; 
+    animation: fadeInOut 5s infinite; 
 }
 /* Fade-in and fade-out animation */
 @keyframes fadeInOut {
@@ -169,4 +169,3 @@ body {
     50% {
         opacity: 1; /* Fully visible */
     }
-}
