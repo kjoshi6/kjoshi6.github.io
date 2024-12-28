@@ -69,7 +69,7 @@ ul li a {
 }
 
 ul li a:hover {
-    color: #b8336a; /* Shimmery hover effect */
+    color: #b8336a; 
 }
 
 /* Main Content */
@@ -145,15 +145,10 @@ button {
 button:hover {
     transform: scale(1.1);
 }
-    /* Custom glittery cursor */
-body {
     cursor: url('cursor.png'), auto;
 }
     cursor: url('cursor.png'), pointer;
 }
-
-/* Centering the heading */
-.fade-heading {
     text-align: center; 
     margin-top: 10%; 
     font-family: "Times New Roman", "Garamond", serif; 
