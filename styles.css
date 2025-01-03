@@ -54,13 +54,15 @@ body {
     font-size: 4rem;
     color: #f4acb7;
     text-shadow: 3px 3px #003e1f;
-    animation: fade-spin 3s infinite;
+    animation: fade-spin 3s ease-in-out 3; /* Spins 3 times */
 }
 
 @keyframes fade-spin {
     0% { opacity: 0; transform: rotate(0deg); }
     50% { opacity: 1; }
     100% { opacity: 0; transform: rotate(360deg); }
+}
+
 }
 
 /* Section Styling */
