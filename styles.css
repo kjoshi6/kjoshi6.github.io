@@ -1,166 +1,88 @@
-/* General reset */
+/* Reset some default styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Times New Roman', serif;
 }
 
-/* Body Styles */
+/* General Body Styles */
 body {
-    font-family: 'Times New Roman', Times, serif; /* Fallback to Times New Roman */
-    background-color: #f4acb7;
+    background: linear-gradient(to right, #f4acb7, #6b9080);
     color: #003e1f;
-    line-height: 1.6;
-    font-size: 16px;
-    padding: 20px;
+    font-family: 'Garamond', serif;
+    text-align: center;
 }
 
-/* Header and Navigation */
+/* Header Styles */
 header {
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+    padding: 20px 0;
+    background-color: #003e1f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Apply the animation to the logo */
-.logo {
-    font-family: 'Georgia', serif;
-    font-size: 3rem;
-    color: #6b9080;
-    display: inline-block;
-    animation: spin 5s infinite linear; 
-}
-
-nav {
+.crystal-nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.logo {
-    font-family: 'Garamond', serif;
-    font-size: 24px;
-    color: #fff;
-    text-transform: uppercase;
-}
-
-ul {
+    justify-content: center;
+    gap: 30px;
     list-style: none;
-    display: flex;
 }
 
-ul li {
-    margin: 0 15px;
+.crystal-nav li {
+    display: inline-block;
 }
 
-ul li a {
-    text-decoration: none;
+.crystal-nav a {
+    display: block;
     color: #fff;
-    font-family: 'Garamond', serif;
-    font-weight: bold;
-    transition: all 0.3s ease;
+    text-decoration: none;
 }
 
-ul li a:hover {
-    color: #b8336a; 
+.crystal-nav img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Main Content */
+.crystal-nav img:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px #f4acb7, 0 0 40px #b8336a;
+}
+
+.crystal-nav p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Main Section */
 main {
-    margin-top: 30px;
+    padding: 50px 10px;
+}
+
+h1.fade-in {
+    animation: fadeIn 2s ease-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 section {
-    margin-bottom: 40px;
-}
-
-h1, h2 {
-    font-family: 'Garamond', serif;
-    color: #003e1f;
-}
-
-h1 {
-    font-size: 36px;
-}
-
-h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-p {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 18px;
+    margin-bottom: 50px;
 }
 
 /* Footer Styles */
 footer {
     background-color: #003e1f;
+    padding: 10px 0;
     color: #fff;
-    text-align: center;
-    padding: 10px;
     position: fixed;
-    width: 100%;
     bottom: 0;
-}
-@media (max-width: 768px) {
-    header {
-        text-align: center;
-    }
-
-    .logo {
-        font-size: 20px;
-    }
-
-    ul {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    ul li {
-        margin: 10px 0;
-    }
-}
-html {
-    scroll-behavior: smooth;
-}
-<h2 class="animated-text">Welcome to Krisha's World</h2>
-button {
-    background-color: #003e1f;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: transform 0.3s ease;
+    width: 100%;
 }
 
-button:hover {
-    transform: scale(1.1);
+footer p {
+    font-size: 14px;
 }
-    cursor: url('cursor.png'), auto;
-}
-    cursor: url('cursor.png'), pointer;
-}
-    text-align: center; 
-    margin-top: 10%; 
-    font-family: "Times New Roman", "Garamond", serif; 
-    font-size: 3rem; 
-    color: #b8336a; 
-    animation: fadeInOut 5s infinite; 
-}
-/* Fade-in and fade-out animation */
-@keyframes fadeInOut {
-    0%, 100% {
-        opacity: 0; /* Fully transparent */
-    }
-    50% {
-        opacity: 1; /* Fully visible */
-    }
