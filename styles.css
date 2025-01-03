@@ -54,7 +54,7 @@ body {
     font-size: 4rem;
     color: #f4acb7;
     text-shadow: 3px 3px #003e1f;
-    animation: fade-spin 3s ease-in-out 3; /* Spins 3 times */
+    animation: fade-spin 3s ease-in-out 1; /* Spins 1 times */
 }
 
 @keyframes fade-spin {
