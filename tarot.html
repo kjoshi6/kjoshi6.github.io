@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pick a Tarot Card</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Glittery Cursor -->
+    <div id="cursor"></div>
+
+    <!-- Heading -->
+    <header>
+        <h1 id="page-title">Pick a Tarot Card</h1>
+        <nav>
+            <a href="index.html" class="back-home">← Back to Home</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="tarot-container">
+        <h2>Focus on Your Question, Then Click the Crystal Ball Below</h2>
+        <div id="crystal-ball">
+            <button id="pick-card">🔮 Pick a Card</button>
+        </div>
+        <div id="card-display" style="display: none;">
+            <img id="card-image" src="" alt="Your tarot card">
+            <h3 id="card-name"></h3>
+            <p id="card-meaning"></p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>✨ Powered by Kiki's World ✨</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
