@@ -114,3 +114,103 @@ body {
         opacity: 0;
     }
 }
+tarot page code:
+/* General Styles */
+body {
+    font-family: 'Comic Sans MS', cursive;
+    text-align: center;
+    background: linear-gradient(to bottom, #f3c3d6, #f0ebf1, #3f1e65);
+    color: #3f1e65;
+    overflow: hidden;
+}
+
+/* Cursor Styling */
+#cursor {
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, #AE4169, transparent);
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Heading */
+header {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#page-title {
+    font-size: 3em;
+    color: white;
+    text-shadow: 0 0 20px #AE4169, 0 0 40px #AE4169;
+}
+
+/* Back Home Link */
+nav .back-home {
+    text-decoration: none;
+    font-size: 1.2em;
+    color: #AE4169;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+/* Tarot Card Container */
+#tarot-container {
+    padding: 20px;
+}
+
+#crystal-ball {
+    margin: 30px auto;
+    display: inline-block;
+}
+
+#crystal-ball button {
+    font-size: 2em;
+    padding: 10px 20px;
+    background: #AE4169;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 20px #AE4169, 0 0 40px #AE4169;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#crystal-ball button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px #AE4169, 0 0 60px #AE4169;
+}
+
+/* Card Display */
+#card-display {
+    margin-top: 20px;
+}
+
+#card-image {
+    max-width: 300px;
+    border: 2px solid #AE4169;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #AE4169;
+    margin: 10px auto;
+}
+
+#card-name {
+    font-size: 1.5em;
+    color: #AE4169;
+}
+
+#card-meaning {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    font-size: 1em;
+    color: white;
+}
