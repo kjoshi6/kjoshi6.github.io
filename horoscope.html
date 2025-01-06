@@ -18,8 +18,22 @@
 
     <!-- Horoscope Content -->
     <div class="horoscope-container">
-        <p>Enter your zodiac sign below to get today's horoscope:</p>
-        <input type="text" id="sign" placeholder="e.g., Aries">
+        <p>Select your zodiac sign below to get today's horoscope:</p>
+        <select id="zodiac-sign">
+            <option value="" selected disabled>Select your sign</option>
+            <option value="aries">Aries</option>
+            <option value="taurus">Taurus</option>
+            <option value="gemini">Gemini</option>
+            <option value="cancer">Cancer</option>
+            <option value="leo">Leo</option>
+            <option value="virgo">Virgo</option>
+            <option value="libra">Libra</option>
+            <option value="scorpio">Scorpio</option>
+            <option value="sagittarius">Sagittarius</option>
+            <option value="capricorn">Capricorn</option>
+            <option value="aquarius">Aquarius</option>
+            <option value="pisces">Pisces</option>
+        </select>
         <button id="get-horoscope">Get Horoscope</button>
         <div id="horoscope-result"></div>
     </div>
@@ -27,4 +41,3 @@
     <script src="custom-horoscope.js"></script>
 </body>
 </html>
-
