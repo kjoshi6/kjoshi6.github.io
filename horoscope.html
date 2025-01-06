@@ -3,162 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horoscope | Kiki's World</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your main CSS -->
-    <style>
-        body {
-            background: linear-gradient(to bottom, #3f1e65, #AE4169, #f3c3d6, #f0ebf1);
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-
-        header h1 {
-            text-align: center;
-            font-size: 4em;
-            color: #fff;
-            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #AE4169;
-            margin-top: 50px;
-            font-family: "Comic Sans MS", cursive, sans-serif;
-        }
-
-        .form-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 50px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.3);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px #AE4169;
-        }
-
-        label {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-
-        select, button {
-            padding: 10px;
-            margin: 10px;
-            border-radius: 5px;
-            font-size: 1em;
-            border: none;
-            cursor: pointer;
-        }
-
-        button {
-            background: #AE4169;
-            color: #fff;
-            text-transform: uppercase;
-        }
-
-        #horoscopeResult {
-            text-align: center;
-            margin-top: 40px;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px #f0ebf1;
-        }
-
-        #horoscopeDetails h3 {
-            font-size: 2em;
-            margin-bottom: 15px;
-        }
-
-        #horoscopeDetails p {
-            font-size: 1.2em;
-            line-height: 1.6;
-        }
-    </style>
+    <title>Horoscope</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <!-- Header with title -->
     <header>
-        <h1>Horoscope Reading</h1>
+        <h1 class="glow-heading">Daily Horoscope</h1>
     </header>
 
-    <!-- Horoscope Form -->
-    <div class="form-container">
-        <form id="horoscopeForm">
-            <label for="zodiacSign">Select Your Zodiac Sign:</label>
-            <select id="zodiacSign">
-                <option value="aries">Aries</option>
-                <option value="taurus">Taurus</option>
-                <option value="gemini">Gemini</option>
-                <option value="cancer">Cancer</option>
-                <option value="leo">Leo</option>
-                <option value="virgo">Virgo</option>
-                <option value="libra">Libra</option>
-                <option value="scorpio">Scorpio</option>
-                <option value="sagittarius">Sagittarius</option>
-                <option value="capricorn">Capricorn</option>
-                <option value="aquarius">Aquarius</option>
-                <option value="pisces">Pisces</option>
-            </select>
-            <button type="submit">Get Horoscope</button>
-        </form>
+    <!-- Back to Home Button -->
+    <nav class="back-home">
+        <a href="index.html" class="home-button">← Back to Home</a>
+    </nav>
+
+    <!-- Horoscope Content -->
+    <div class="horoscope-container">
+        <p>Enter your zodiac sign below to get today's horoscope:</p>
+        <input type="text" id="sign" placeholder="e.g., Aries">
+        <button id="get-horoscope">Get Horoscope</button>
+        <div id="horoscope-result"></div>
     </div>
 
-    <!-- Display Horoscope Result -->
-    <div id="horoscopeResult">
-        <h2>Your Horoscope</h2>
-        <div id="horoscopeDetails"></div> <!-- Horoscope will appear here -->
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Kiki's World. All Rights Reserved.</p>
-    </footer>
-
-    <!-- Add jQuery and Cursor Animation Script -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="cursor.js"></script> <!-- Include your glittery cursor JS file here -->
-
-    <script>
-        $(document).ready(function () {
-            $('#horoscopeForm').submit(function (e) {
-                e.preventDefault();
-                
-                var zodiacSign = $('#zodiacSign').val();
-                
-                // Aztro API endpoint
-                var apiUrl = "https://aztro.sameerkumar.website/";
-                
-                // Make POST request to Aztro API
-                $.ajax({
-                    url: apiUrl,
-                    method: "POST",
-                    data: {
-                        sign: zodiacSign,
-                        day: "today" // you can change 'today' to 'week', 'month', etc.
-                    },
-                    success: function(response) {
-                        // Display the horoscope
-                        $('#horoscopeDetails').html(`
-                            <h3>Today's Horoscope for ${zodiacSign.charAt(0).toUpperCase() + zodiacSign.slice(1)}:</h3>
-                            <p><strong>Horoscope:</strong> ${response.horoscope}</p>
-                            <p><strong>Lucky Number:</strong> ${response.lucky_number}</p>
-                            <p><strong>Lucky Color:</strong> ${response.lucky_color}</p>
-                        `);
-                    },
-                    error: function(err) {
-                        console.error("Error:", err);
-                        $('#horoscopeDetails').html("<p>There was an error fetching the horoscope. Please try again later.</p>");
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="custom-horoscope.js"></script>
 </body>
 </html>
+
