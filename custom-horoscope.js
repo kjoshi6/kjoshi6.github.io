@@ -16,15 +16,17 @@ const horoscopes = {
 
 // Function to Display Horoscope
 function displayHoroscope() {
-    const signInput = document.getElementById("sign").value.toLowerCase();
+    const signDropdown = document.getElementById("zodiac-sign");
+    const selectedSign = signDropdown.value;
     const resultDiv = document.getElementById("horoscope-result");
 
-    if (horoscopes[signInput]) {
-        resultDiv.innerHTML = `<p>Your horoscope: ${horoscopes[signInput]}</p>`;
+    if (selectedSign) {
+        resultDiv.innerHTML = `<p>Your horoscope: ${horoscopes[selectedSign]}</p>`;
     } else {
-        resultDiv.innerHTML = `<p>Sorry, I couldn't find that sign! Please enter a valid zodiac sign.</p>`;
+        resultDiv.innerHTML = `<p>Please select a zodiac sign!</p>`;
     }
 }
 
 // Event Listener for Button
 document.getElementById("get-horoscope").addEventListener("click", displayHoroscope);
+
