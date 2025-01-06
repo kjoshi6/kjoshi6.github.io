@@ -214,24 +214,35 @@ footer {
     font-size: 1em;
     color: white;
 }
-/* Horoscope Result Styling */
-#horoscope-result {
-    margin-top: 20px;
+/* Dropdown Styling */
+#zodiac-sign {
     font-family: "Comic Sans MS", sans-serif;
-    color: #f3c3d6;
-    text-align: center;
-    background: linear-gradient(90deg, #3f1e65, #AE4169, #f3c3d6);
-    padding: 15px;
-    border-radius: 15px;
-    box-shadow: 0 0 10px #AE4169, 0 0 20px #3f1e65;
-    animation: fadeIn 1s ease-in-out;
+    font-size: 16px;
+    color: #3f1e65;
+    background-color: #f3c3d6;
+    border: 2px solid #AE4169;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 0 0 5px #AE4169;
+    cursor: pointer;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+/* Button Styling */
+#get-horoscope {
+    font-family: "Comic Sans MS", sans-serif;
+    font-size: 16px;
+    color: #fff;
+    background-color: #AE4169;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#get-horoscope:hover {
+    background-color: #3f1e65;
+    box-shadow: 0 0 10px #AE4169, 0 0 20px #f3c3d6;
+}
 }
