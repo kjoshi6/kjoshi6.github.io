@@ -134,6 +134,15 @@ body {
     pointer-events: none;
     z-index: 1000;
 }
+/* Style for the canvas to cover the entire page */
+#constellationCanvas {
+    position: fixed;        /* Fix the canvas in the background */
+    top: 0;                 /* Start from the top of the viewport */
+    left: 0;                /* Start from the left of the viewport */
+    width: 100%;            /* Make the canvas span the entire width */
+    height: 100%;           /* Make the canvas span the entire height */
+    z-index: -1;            /* Place it behind all other content */
+    pointer-events: none;   /* Prevent users from interacting with the canvas */
 
 /* Heading */
 header {
@@ -245,13 +254,4 @@ footer {
     background-color: #3f1e65;
     box-shadow: 0 0 10px #AE4169, 0 0 20px #f3c3d6;
 }
-/* Style for the canvas to cover the entire page */
-#constellationCanvas {
-    position: fixed;        /* Fix the canvas in the background */
-    top: 0;                 /* Start from the top of the viewport */
-    left: 0;                /* Start from the left of the viewport */
-    width: 100%;            /* Make the canvas span the entire width */
-    height: 100%;           /* Make the canvas span the entire height */
-    z-index: -1;            /* Place it behind all other content */
-    pointer-events: none;   /* Prevent users from interacting with the canvas */
 }
