@@ -52,14 +52,19 @@ function loadQuestion() {
         const button = document.createElement("button");
         button.className = "option-button";
         button.textContent = option;
-        button.onclick = () => selectOption(option);
+        button.onclick = () => selectOption(button, option);
         optionsContainer.appendChild(button);
     });
     backButton.disabled = currentQuestionIndex === 0;
     nextButton.textContent = currentQuestionIndex === questions.length - 1 ? "Submit" : "Next";
 }
 
-function selectOption(option) {
+function selectOption(button, option) {
+    // Highlight the selected answer
+    const buttons = optionsContainer.querySelectorAll("button");
+    buttons.forEach(btn => btn.classList.remove("selected"));
+    button.classList.add("selected");
+
     console.log(`Selected: ${option}`); // Replace with point-adding logic
 }
 
@@ -80,3 +85,4 @@ nextButton.addEventListener("click", () => {
 });
 
 loadQuestion();
+
