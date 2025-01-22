@@ -254,4 +254,51 @@ footer {
     background-color: #3f1e65;
     box-shadow: 0 0 10px #AE4169, 0 0 20px #f3c3d6;
 }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(145deg, #f2f2f7, #f9f9f9);
+  color: #333;
+  overflow: hidden;
 }
+
+.quiz-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.result-background.train {
+  background: url('./assets/train.gif') no-repeat center center/cover;
+}
+
+.result-background.cake {
+  background: url('./assets/tea-and-cake.gif') no-repeat center center/cover;
+}
+
+.result-background.coffee-shop {
+  background: url('./assets/coffee-shop.gif') no-repeat center center/cover;
+}
+
+.result-background.couch {
+  background: url('./assets/y2k-game.gif') no-repeat center center/cover;
+}
+
+.button {
+  padding: 10px 20px;
+  background: #6a89cc;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background: #4a69bd;
+}
+
