@@ -1,35 +1,29 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz</title>
-    <link rel="stylesheet" href="styles.css">  <!-- Assuming styles.css is in the same folder -->
-</head>
-
-
-        <div class="quiz-container">
-  <h1>So don’t know what to do with your day? Take my little quiz and find out! MWAH</h1>
-  
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
-    <link rel="stylesheet" href="quiz.css">
+    <link rel="stylesheet" href="styles.css">  <!-- Link to your main stylesheet -->
 </head>
 <body>
-    <div id="quiz-container">
-        <div id="question-box">
-            <h2 id="question-title"></h2>
-            <div id="options-container"></div>
-        </div>
-        <div id="navigation-buttons">
-            <button id="back-button" disabled>Back</button>
-            <button id="next-button">Next</button>
+    <div class="quiz-container">
+        <h1>So don’t know what to do with your day? Take my little quiz and find out! MWAH</h1>
+
+        <div id="quiz-container">
+            <div id="question-box">
+                <h2 id="question-title"></h2>
+                <div id="options-container"></div>
+            </div>
+            <div id="navigation-buttons">
+                <button id="back-button" disabled>Back</button>
+                <button id="next-button">Next</button>
+            </div>
         </div>
     </div>
 
-    <script src="cursor.js"></script>
-    <script src="quiz.js"></script>
+    <script src="cursor.js"></script>  <!-- Ensure this JS file exists if needed -->
+    <script src="quiz.js"></script>    <!-- This links to your main quiz logic -->
 </body>
 </html>
+
