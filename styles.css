@@ -95,24 +95,32 @@ body {
 /* Glittery Trail for Cursor */
 .sparkle {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    background: radial-gradient(circle, #f3c3d6, #AE4169);
-    border-radius: 50%;
-    box-shadow: 0 0 15px #f3c3d6, 0 0 30px #AE4169;
     pointer-events: none;
-    animation: sparkleAnimation 1s ease-out;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    opacity: 1;
+    animation: fade-out 1s ease-out forwards, move-up 1s ease-out;
 }
 
-@keyframes sparkleAnimation {
+/* Sparkle fading out */
+@keyframes fade-out {
     0% {
-        transform: scale(1);
         opacity: 1;
     }
     100% {
-        transform: scale(0);
         opacity: 0;
     }
+}
+
+/* Optional: Sparkle movement */
+@keyframes move-up {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px); /* Sparkles float up slightly */
+    }
+}
 }
 tarot page code:
 /* General Styles */
