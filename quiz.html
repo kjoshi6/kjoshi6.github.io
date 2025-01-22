@@ -24,20 +24,60 @@
             <button id="start-quiz">Start the Journey</button>
         </section>
 
-        <section class="quiz" id="quiz-section" style="display: none;">
-            <div id="question-container"></div>
-            <button id="next-question" style="display: none;">Next</button>
-        </section>
+        <div class="quiz-container">
+  <h1>So don’t know what to do with your day? Take my little quiz and find out! MWAH</h1>
+  
+  <form id="quiz">
+    <!-- Question 1 -->
+    <fieldset>
+      <legend>What’s your gut reaction to how you feel right now?</legend>
+      <label><input type="radio" name="q1" value="train"> I feel restless and want a change of scenery.</label><br>
+      <label><input type="radio" name="q1" value="tea"> I just want to be cozy and comforted.</label><br>
+      <label><input type="radio" name="q1" value="coffee"> I need to get things done but in a way that doesn’t feel overwhelming.</label><br>
+      <label><input type="radio" name="q1" value="couch"> I feel drained and need to turn my brain off for a while.</label>
+    </fieldset>
 
-        <section class="result" id="result-section" style="display: none;">
-            <div id="result-content">
-                <h2>Your Vibe: <span id="vibe-title"></span></h2>
-                <p id="vibe-description"></p>
-                <div id="vibe-recs">
-                    <h3>Recommendations:</h3>
-                    <ul id="rec-list"></ul>
-                </div>
-            </div>
+    <!-- Question 2 -->
+    <fieldset>
+      <legend>When was the last time you felt truly inspired?</legend>
+      <label><input type="radio" name="q2" value="train"> When I explored someplace new.</label><br>
+      <label><input type="radio" name="q2" value="tea"> When I slowed down and savored a moment.</label><br>
+      <label><input type="radio" name="q2" value="coffee"> When I accomplished something on my to-do list.</label><br>
+      <label><input type="radio" name="q2" value="couch"> When I let myself relax and didn’t force anything.</label>
+    </fieldset>
+
+    <!-- Question 3 -->
+    <fieldset>
+      <legend>What sounds most appealing to you right now?</legend>
+      <label><input type="radio" name="q3" value="train"> Watching the world go by through a train or car window.</label><br>
+      <label><input type="radio" name="q3" value="tea"> Wrapping my hands around a warm drink and sitting somewhere quiet.</label><br>
+      <label><input type="radio" name="q3" value="coffee"> Sitting at a café surrounded by soft chatter and the smell of coffee.</label><br>
+      <label><input type="radio" name="q3" value="couch"> Sprawling on the couch with snacks and no expectations.</label>
+    </fieldset>
+
+    <!-- Question 4 -->
+    <fieldset>
+      <legend>What kind of energy are you craving today?</legend>
+      <label><input type="radio" name="q4" value="train"> Excitement and a little adventure.</label><br>
+      <label><input type="radio" name="q4" value="tea"> Calm and warmth to soothe my soul.</label><br>
+      <label><input type="radio" name="q4" value="coffee"> A gentle push to be productive in a nice environment.</label><br>
+      <label><input type="radio" name="q4" value="couch"> A guilt-free day of total relaxation.</label>
+    </fieldset>
+
+    <!-- Question 5 -->
+    <fieldset>
+      <legend>What’s your zodiac sign?</legend>
+      <label><input type="radio" name="q5" value="fire"> Fire sign - Aries, Leo, Sagittarius</label><br>
+      <label><input type="radio" name="q5" value="earth"> Earth sign - Taurus, Virgo, Capricorn</label><br>
+      <label><input type="radio" name="q5" value="air"> Air sign - Gemini, Libra, Aquarius</label><br>
+      <label><input type="radio" name="q5" value="water"> Water sign - Cancer, Scorpio, Pisces</label>
+    </fieldset>
+
+    <!-- Submit Button -->
+    <button type="submit">Get Your Vibe</button>
+  </form>
+</div>
+
             <button id="retake-quiz">Retake Quiz</button>
         </section>
     </main>
