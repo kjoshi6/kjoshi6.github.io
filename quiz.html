@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="quiz.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="substack.html">Substack</a></li>
+                <li><a href="gallery.html">Photo Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="quiz-intro">
+            <h1>What Should You Do Today to Feel Inspired?</h1>
+            <p>Let the stars and your mood guide you to your perfect vibe. Answer a few questions, and we’ll reveal the magical way to spark your day.</p>
+            <button id="start-quiz">Start the Journey</button>
+        </section>
+
+        <section class="quiz" id="quiz-section" style="display: none;">
+            <div id="question-container"></div>
+            <button id="next-question" style="display: none;">Next</button>
+        </section>
+
+        <section class="result" id="result-section" style="display: none;">
+            <div id="result-content">
+                <h2>Your Vibe: <span id="vibe-title"></span></h2>
+                <p id="vibe-description"></p>
+                <div id="vibe-recs">
+                    <h3>Recommendations:</h3>
+                    <ul id="rec-list"></ul>
+                </div>
+            </div>
+            <button id="retake-quiz">Retake Quiz</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Your Name | Designed with magic and fun</p>
+    </footer>
+</body>
+</html>
