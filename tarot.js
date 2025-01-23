@@ -1,113 +1,77 @@
-// Elements
-const deckContainer = document.getElementById("deck-container");
-const cardReveal = document.getElementById("card-reveal");
-const grainOfSalt = document.getElementById("grain-of-salt");
+document.addEventListener('DOMContentLoaded', () => {
+    const cardDeck = document.getElementById('card-deck');
+    const cardDetails = document.getElementById('card-details');
+    const cardName = document.getElementById('card-name');
+    const cardDescription = document.getElementById('card-description');
 
-// Tarot Cards Data
-const tarotCards = [
-  { name: "The Fool", upright: "New beginnings, spontaneity", reversed: "Carelessness, risk-taking" },
-  { name: "The Magician", upright: "Willpower, creation", reversed: "Manipulation, poor planning" },
-  { name: "The High Priestess", upright: "Intuition, mystery", reversed: "Secrets, withdrawal" },
-  { name: "The Empress", upright: "Fertility, abundance", reversed: "Dependence, creative block" },
-  { name: "The Emperor", upright: "Authority, structure", reversed: "Tyranny, rigidity" },
-  { name: "The Hierophant", upright: "Tradition, spirituality", reversed: "Rebellion, subversiveness" },
-  { name: "The Lovers", upright: "Love, harmony", reversed: "Disharmony, imbalance" },
-  { name: "The Chariot", upright: "Victory, determination", reversed: "Lack of direction, obstacles" },
-  { name: "Strength", upright: "Courage, inner strength", reversed: "Self-doubt, weakness" },
-  { name: "The Hermit", upright: "Introspection, solitude", reversed: "Isolation, loneliness" },
-  { name: "Wheel of Fortune", upright: "Luck, cycles", reversed: "Misfortune, resistance to change" },
-  { name: "Justice", upright: "Truth, fairness", reversed: "Dishonesty, lack of accountability" },
-  { name: "The Hanged Man", upright: "Pause, surrender", reversed: "Resistance, indecision" },
-  { name: "Death", upright: "Transformation, endings", reversed: "Resistance to change, stagnation" },
-  { name: "Temperance", upright: "Balance, patience", reversed: "Excess, imbalance" },
-  { name: "The Devil", upright: "Addiction, materialism", reversed: "Freedom, detachment" },
-  { name: "The Tower", upright: "Sudden upheaval, chaos", reversed: "Avoidance of disaster, fear of change" },
-  { name: "The Star", upright: "Hope, inspiration", reversed: "Despair, disconnection" },
-  { name: "The Moon", upright: "Illusion, intuition", reversed: "Clarity, fear" },
-  { name: "The Sun", upright: "Joy, success", reversed: "Negativity, arrogance" },
-  { name: "Judgment", upright: "Reflection, awakening", reversed: "Self-doubt, inner critic" },
-  { name: "The World", upright: "Completion, wholeness", reversed: "Lack of closure, delays" },
-  { name: "Ace of Cups", upright: "Emotional fulfillment, love", reversed: "Blocked emotions, emptiness" },
-  { name: "Two of Cups", upright: "Partnership, unity", reversed: "Breakup, imbalance" },
-  { name: "Three of Cups", upright: "Celebration, friendship", reversed: "Overindulgence, gossip" },
-  { name: "Four of Cups", upright: "Apathy, contemplation", reversed: "Awareness, acceptance" },
-  { name: "Five of Cups", upright: "Loss, regret", reversed: "Acceptance, moving on" },
-  { name: "Six of Cups", upright: "Nostalgia, childhood", reversed: "Stuck in the past, naivety" },
-  { name: "Seven of Cups", upright: "Choices, illusion", reversed: "Clarity, decisiveness" },
-  { name: "Eight of Cups", upright: "Walking away, search for meaning", reversed: "Fear of change, avoidance" },
-  { name: "Nine of Cups", upright: "Contentment, satisfaction", reversed: "Greed, dissatisfaction" },
-  { name: "Ten of Cups", upright: "Happiness, harmony", reversed: "Disconnection, misalignment" },
-  { name: "Page of Cups", upright: "Creative beginnings, curiosity", reversed: "Emotional immaturity, insecurity" },
-  { name: "Knight of Cups", upright: "Romantic proposals, charm", reversed: "Moodiness, jealousy" },
-  { name: "Queen of Cups", upright: "Compassion, intuition", reversed: "Emotional insecurity, dependency" },
-  { name: "King of Cups", upright: "Balance, generosity", reversed: "Manipulation, volatility" },
-  { name: "Ace of Pentacles", upright: "Opportunity, prosperity", reversed: "Missed chances, instability" },
-  { name: "Two of Pentacles", upright: "Balance, adaptability", reversed: "Overwhelm, imbalance" },
-  { name: "Three of Pentacles", upright: "Collaboration, teamwork", reversed: "Lack of cooperation, disharmony" },
-  { name: "Four of Pentacles", upright: "Security, conservatism", reversed: "Greed, materialism" },
-  { name: "Five of Pentacles", upright: "Poverty, isolation", reversed: "Recovery, rebuilding" },
-  { name: "Six of Pentacles", upright: "Generosity, charity", reversed: "Strings attached, inequality" },
-  { name: "Seven of Pentacles", upright: "Perseverance, investment", reversed: "Impatience, lack of growth" },
-  { name: "Eight of Pentacles", upright: "Mastery, craftsmanship", reversed: "Perfectionism, lack of focus" },
-  { name: "Nine of Pentacles", upright: "Luxury, self-sufficiency", reversed: "Overindulgence, dependence" },
-  { name: "Ten of Pentacles", upright: "Wealth, legacy", reversed: "Loss, lack of stability" },
-  { name: "Page of Pentacles", upright: "Ambition, diligence", reversed: "Lack of progress, procrastination" },
-  { name: "Knight of Pentacles", upright: "Hard work, responsibility", reversed: "Stubbornness, laziness" },
-  { name: "Queen of Pentacles", upright: "Nurturing, practicality", reversed: "Neglect, imbalance" },
-  { name: "King of Pentacles", upright: "Abundance, discipline", reversed: "Greed, overindulgence" },
-  { name: "Ace of Swords", upright: "Clarity, breakthrough", reversed: "Confusion, miscommunication" },
-  { name: "Two of Swords", upright: "Indecision, stalemate", reversed: "Resolution, clarity" },
-  { name: "Three of Swords", upright: "Heartbreak, sorrow", reversed: "Healing, forgiveness" },
-  { name: "Four of Swords", upright: "Rest, recovery", reversed: "Burnout, restlessness" },
-  { name: "Five of Swords", upright: "Conflict, tension", reversed: "Reconciliation, resolution" },
-  { name: "Six of Swords", upright: "Transition, change", reversed: "Resistance, stagnation" },
-  { name: "Seven of Swords", upright: "Deception, strategy", reversed: "Revealed secrets, self-deception" },
-  { name: "Eight of Swords", upright: "Restriction, fear", reversed: "Empowerment, freedom" },
-  { name: "Nine of Swords", upright: "Anxiety, worry", reversed: "Relief, hope" },
-  { name: "Ten of Swords", upright: "Betrayal, defeat", reversed: "Resilience, recovery" },
-  { name: "Page of Swords", upright: "Curiosity, new ideas", reversed: "Gossip, lack of planning" },
-  { name: "Knight of Swords", upright: "Action, speed", reversed: "Recklessness, haste" },
-  { name: "Queen of Swords", upright: "Perception, honesty", reversed: "Bitterness, criticism" },
-  { name: "King of Swords", upright: "Logic, authority", reversed: "Manipulation, coldness" },
-  { name: "Ace of Wands", upright: "Inspiration, potential", reversed: "Lack of direction, delays" },
-  { name: "Two of Wands", upright: "Planning, progress", reversed: "Fear of change, indecision" },
-  { name: "Three of Wands", upright: "Expansion, foresight", reversed: "Obstacles, delays" },
-  { name: "Four of Wands", upright: "Celebration, stability", reversed: "Disconnection, instability" },
-  { name: "Five of Wands", upright: "Conflict, competition", reversed: "Resolution, avoidance" },
-  { name: "Six of Wands", upright: "Victory, recognition", reversed: "Egotism, lack of confidence" },
-  { name: "Seven of Wands", upright: "Defense, perseverance", reversed: "Exhaustion, giving up" },
-  { name: "Eight of Wands", upright: "Momentum, progress", reversed: "Delays, frustration" },
-  { name: "Nine of Wands", upright: "Resilience, courage", reversed: "Paranoia, hesitation" },
-  { name: "Ten of Wands", upright: "Burden, responsibility", reversed: "Relief, delegation" },
-  { name: "Page of Wands", upright: "Exploration, enthusiasm", reversed: "Insecurity, impatience" },
-  { name: "Knight of Wands", upright: "Adventure, action", reversed: "Impulsiveness, recklessness" },
-  { name: "Queen of Wands", upright: "Confidence, warmth", reversed: "Jealousy, selfishness" },
-  { name: "King of Wands", upright: "Leadership, vision", reversed: "Impulsiveness, arrogance" },
-];
+    // List of card details (name and image placeholders for now)
+    const cardInfo = [
+        { name: "The Fool", image: "card-fool.jpg", description: "The Fool represents new beginnings, innocence, and spontaneity." },
+        { name: "The Magician", image: "card-magician.jpg", description: "The Magician symbolizes skill, resourcefulness, and power." },
+        { name: "The High Priestess", image: "card-high-priestess.jpg", description: "The High Priestess embodies intuition, wisdom, and mystery." },
+        { name: "The Empress", image: "card-empress.jpg", description: "The Empress represents abundance, nurturing, and creativity." },
+        { name: "The Emperor", image: "card-emperor.jpg", description: "The Emperor signifies authority, structure, and leadership." },
+        { name: "The Hierophant", image: "card-hierophant.jpg", description: "The Hierophant represents tradition, spirituality, and guidance." },
+        { name: "The Lovers", image: "card-lovers.jpg", description: "The Lovers card represents love, harmony, and partnership." },
+        { name: "The Chariot", image: "card-chariot.jpg", description: "The Chariot represents control, determination, and victory." },
+        { name: "Strength", image: "card-strength.jpg", description: "Strength symbolizes courage, bravery, and inner strength." },
+        { name: "The Hermit", image: "card-hermit.jpg", description: "The Hermit represents introspection, solitude, and inner wisdom." },
+        { name: "Wheel of Fortune", image: "card-wheel-of-fortune.jpg", description: "The Wheel of Fortune symbolizes cycles, fate, and change." },
+        { name: "Justice", image: "card-justice.jpg", description: "Justice represents fairness, balance, and legal matters." },
+        { name: "The Hanged Man", image: "card-hanged-man.jpg", description: "The Hanged Man symbolizes sacrifice, patience, and new perspectives." },
+        { name: "Death", image: "card-death.jpg", description: "Death represents transformation, endings, and new beginnings." },
+        { name: "Temperance", image: "card-temperance.jpg", description: "Temperance symbolizes balance, moderation, and harmony." },
+        { name: "The Devil", image: "card-devil.jpg", description: "The Devil represents temptation, addiction, and materialism." },
+        { name: "The Tower", image: "card-tower.jpg", description: "The Tower symbolizes destruction, chaos, and revelation." },
+        { name: "The Star", image: "card-star.jpg", description: "The Star represents hope, inspiration, and serenity." },
+        { name: "The Moon", image: "card-moon.jpg", description: "The Moon symbolizes illusion, mystery, and intuition." },
+        { name: "The Sun", image: "card-sun.jpg", description: "The Sun represents joy, success, and positivity." },
+        { name: "Judgement", image: "card-judgement.jpg", description: "Judgement represents rebirth, renewal, and self-reflection." },
+        { name: "The World", image: "card-world.jpg", description: "The World symbolizes completion, wholeness, and accomplishment." }
+    ];
 
-// On Page Load: Spread Cards
-window.addEventListener("load", () => {
-  setTimeout(spreadCards, 1000);
+    // Dynamically create the card elements and add them to the deck
+    cardInfo.forEach((card, index) => {
+        const cardElement = document.createElement('img');
+        cardElement.src = card.image;  // Replace with actual image path
+        cardElement.alt = card.name;
+        cardElement.classList.add('tarot-card');
+        cardElement.setAttribute('data-index', index);
+        cardDeck.appendChild(cardElement);
+    });
+
+    // Shuffle and spread out cards
+    function shuffleAndSpreadCards() {
+        const cards = document.querySelectorAll('.tarot-card');
+        cards.forEach((card) => {
+            card.style.transition = "transform 0.8s, opacity 0.8s";
+            card.style.transform = `translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px)`;
+            card.style.opacity = 1;
+        });
+    }
+
+    shuffleAndSpreadCards();
+
+    // Add smoke effect and card selection
+    const cards = document.querySelectorAll('.tarot-card');
+    cards.forEach((card) => {
+        card.addEventListener('click', () => {
+            const cardIndex = card.getAttribute('data-index');
+            const selectedCard = cardInfo[cardIndex];
+
+            // Apply smoke effect (use CSS animation or a library)
+            card.classList.add('smoke-animation');
+            cardDetails.style.display = "block";
+
+            // Display card details
+            cardName.textContent = selectedCard.name;
+            cardDescription.textContent = selectedCard.description;
+
+            // Highlight the selected card
+            card.style.transform = "scale(1.2)";
+            setTimeout(() => {
+                card.style.transform = "scale(1)";
+            }, 500);
+        });
+    });
 });
-
-function spreadCards() {
-  tarotCards.forEach((card, index) => {
-    const cardElement = document.createElement("div");
-    cardElement.className = "tarot-card";
-    cardElement.style.transform = `rotate(${index * 2 - 30}deg) translateX(${index * 10}px)`;
-    cardElement.addEventListener("click", () => revealCard(card));
-    deckContainer.appendChild(cardElement);
-  });
-}
-
-// Reveal a Card
-function revealCard(card) {
-  deckContainer.innerHTML = ""; // Clear the deck
-  cardReveal.innerHTML = `
-        <div class="selected-card">
-            <h2>${card.name}</h2>
-            <p>${Math.random() > 0.5 ? card.upright : card.reversed}</p>
-        </div>
-    `;
-  grainOfSalt.classList.remove("hidden"); // Show footer message
-}
