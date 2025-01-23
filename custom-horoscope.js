@@ -1,17 +1,17 @@
 // Custom Horoscope Data
 const horoscopes = {
-    aries: "Today, your fiery energy will help you take charge! Don't hold back—trust your instincts and move forward.",
-    taurus: "Patience is your virtue today, Taurus. Take a moment to appreciate the beauty around you and avoid unnecessary conflicts.",
-    gemini: "Your curiosity will lead you to exciting new opportunities. Embrace them with an open mind!",
-    cancer: "It's a day for self-care, Cancer. Prioritize your emotional well-being and connect with loved ones.",
-    leo: "Your charisma will be on full display today. Use it to inspire others and bring positivity into their lives.",
-    virgo: "Your attention to detail will shine. Take the time to organize and plan—you'll feel more grounded.",
-    libra: "Harmony and balance are your focus today. Strengthen your relationships and seek beauty in everything you do.",
-    scorpio: "Your intensity will drive you toward success. Use it wisely, but don't forget to take a breather.",
-    sagittarius: "Adventure is calling! Step out of your comfort zone and embrace the unknown.",
-    capricorn: "Hard work will pay off today, Capricorn. Stay focused on your goals, and you'll see results soon.",
-    aquarius: "Your innovative ideas will shine. Share your vision with others and watch the magic unfold.",
-    pisces: "Your intuition is your superpower today, Pisces. Trust your gut feelings and let creativity guide you."
+    aries: "Don't mumble your grievences to yourself - time to stand Up",
+    taurus: "Have one emotion, please...",
+    gemini: "Sit your ASS at HOME - nobody wants to play the mind games you started in your own head",
+    cancer: "There is no need to manipulate everyone with your tears",
+    leo: "You don't need to be asking the tough questions everyday.. the People are tired",
+    virgo: "The recieptionist at the dentist didn't smile at you because she hates her job not because she hates you",
+    libra: "When are you getting a personality that isn't people pleasing",
+    scorpio: "No need to be eyeing everyone like a little slut",
+    sagittarius: "You do not need to be terrorizing every room you walk into",
+    capricorn: "Enough money talk spend some time with your loved ones please",
+    aquarius: "Please face one emotion, emotionally, not logically.. we're all begging",
+    pisces: "Everyone wants to come live in lala land with you"
 };
 
 // Function to Display Horoscope
