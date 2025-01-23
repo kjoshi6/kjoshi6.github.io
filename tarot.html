@@ -3,40 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pick a Tarot Card</title>
+    <title>Tarot Reading</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <!-- Glittery Cursor -->
-    <div id="cursor"></div>
-
-    <!-- Heading -->
+<body class="tarot-page">
+    <div id="gradient-bg"></div>
     <header>
-        <h1 id="page-title">Pick a Tarot Card</h1>
-        <nav>
-            <a href="index.html" class="back-home">Back to Home</a>
-        </nav>
+        <h1 class="tarot-heading">Pick a Card</h1>
     </header>
-
-    <!-- Main Content -->
-    <main id="tarot-container">
-        <h2>Focus on Your Question, Then Click the Crystal Ball Below</h2>
-        <div id="crystal-ball">
-            <button id="pick-card">Pick a Card</button>
+    
+    <main>
+        <div id="deck-container">
+            <!-- Cards will be dynamically created by tarot.js -->
         </div>
-        <div id="card-display" style="display: none;">
-            <img id="card-image" src="" alt="Your tarot card">
-            <h3 id="card-name"></h3>
-            <p id="card-meaning"></p>
+        <div id="card-reveal">
+            <!-- Flipped card and description will appear here -->
         </div>
     </main>
-
-    <!-- Footer -->
+    
     <footer>
-        <p>Powered by Kiki's World</p>
+        <button onclick="window.location.href='index.html'" class="home-btn">Back to Home</button>
+        <p id="grain-of-salt" class="hidden">Plz take everything with a grain of salt, and sorry if I clocked your tea..</p>
     </footer>
-
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+    
+    <script src="tarot.js"></script>
 </body>
 </html>
+
