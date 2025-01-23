@@ -462,3 +462,92 @@ h1, h2 {
     background-color: #45a049;
 }
 
+/* Tarot Page Styling */
+body.tarot-page {
+    background: linear-gradient(90deg, #1a0d3a, #331a57, #1a0d3a);
+    animation: slow-gradient 15s infinite;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Gradient Animation */
+@keyframes slow-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Tarot Deck */
+#deck-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    position: relative;
+}
+
+.tarot-card {
+    width: 100px;
+    height: 150px;
+    background: linear-gradient(to bottom, #442266, #331a57);
+    border: 2px solid #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.tarot-card:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* Card Reveal */
+#card-reveal {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.selected-card {
+    width: 120px;
+    height: 180px;
+    margin: 0 auto;
+    background: linear-gradient(to bottom, #664488, #442266);
+    border-radius: 10px;
+    box-shadow: 0 0 20px #ffd700;
+    animation: glow 2s infinite;
+    position: relative;
+}
+
+/* Smoke Animation */
+.smoke-animation {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent);
+    animation: smoke 3s infinite;
+}
+
+@keyframes smoke {
+    0% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.5); opacity: 0.3; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+/* Grain of Salt Message */
+#grain-of-salt.hidden {
+    display: none;
+}
+#grain-of-salt {
+    color: #f0a;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+
