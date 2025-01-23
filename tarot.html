@@ -3,30 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarot Reading</title>
+    <title>Pick a Card - Tarot</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="tarot.js"></script>
 </head>
-<body class="tarot-page">
-    <div id="gradient-bg"></div>
-    <header>
-        <h1 class="tarot-heading">Pick a Card</h1>
-    </header>
-    
-    <main>
-        <div id="deck-container">
-            <!-- Cards will be dynamically created by tarot.js -->
+<body>
+    <div class="container">
+        <!-- Gradient background for the page -->
+        <div class="gradient-background"></div>
+        
+        <!-- Main content area -->
+        <header class="header">
+            <h1 class="glowing-heading">Pick a Card</h1>
+            <a href="index.html" class="back-to-home">Back to Home</a>
+        </header>
+        
+        <div class="card-container">
+            <div id="card-deck" class="card-deck">
+                <!-- Placeholder for cards (these will be replaced with images) -->
+                <img class="tarot-card" id="card1" src="card-placeholder.jpg" alt="Card 1">
+                <img class="tarot-card" id="card2" src="card-placeholder.jpg" alt="Card 2">
+                <img class="tarot-card" id="card3" src="card-placeholder.jpg" alt="Card 3">
+                <img class="tarot-card" id="card4" src="card-placeholder.jpg" alt="Card 4">
+                <img class="tarot-card" id="card5" src="card-placeholder.jpg" alt="Card 5">
+            </div>
         </div>
-        <div id="card-reveal">
-            <!-- Flipped card and description will appear here -->
+
+        <div class="card-details" id="card-details">
+            <h2 id="card-name">Card Name</h2>
+            <p id="card-description">This is a general description of the card. You can edit this later.</p>
         </div>
-    </main>
-    
-    <footer>
-        <button onclick="window.location.href='index.html'" class="home-btn">Back to Home</button>
-        <p id="grain-of-salt" class="hidden">Plz take everything with a grain of salt, and sorry if I clocked your tea..</p>
-    </footer>
-    
-    <script src="tarot.js"></script>
+
+        <!-- Footer -->
+        <footer>
+            <p>Powered by Kiki's World</p>
+        </footer>
+    </div>
 </body>
 </html>
-
