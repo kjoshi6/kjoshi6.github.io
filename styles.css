@@ -124,21 +124,3 @@ body {
     background-color: #3f1e65;
     box-shadow: 0 0 10px #AE4169, 0 0 20px #f3c3d6;
 }
-/* General body and background setup */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to bottom, #1a1a1a, #3c3c3c); /* Darkest gradient */
-    color: white;
-    overflow-x: hidden;
-    position: relative;
-}
-
-/* Container for content */
-.container {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-}
-
