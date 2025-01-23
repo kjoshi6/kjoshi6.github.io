@@ -3,41 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pick a Card - Tarot</title>
+    <title>Tarot Reading</title>
     <link rel="stylesheet" href="styles.css">
-    <script defer src="tarot.js"></script>
 </head>
 <body>
     <div class="container">
-        <!-- Gradient background for the page -->
-        <div class="gradient-background"></div>
-        
-        <!-- Main content area -->
-        <header class="header">
-            <h1 class="glowing-heading">Pick a Card</h1>
-            <a href="index.html" class="back-to-home">Back to Home</a>
-        </header>
-        
+        <h1 class="glowing-heading">Pick a Card</h1>
         <div class="card-container">
-            <div id="card-deck" class="card-deck">
-                <!-- Placeholder for cards (these will be replaced with images) -->
-                <img class="tarot-card" id="card1" src="card-placeholder.jpg" alt="Card 1">
-                <img class="tarot-card" id="card2" src="card-placeholder.jpg" alt="Card 2">
-                <img class="tarot-card" id="card3" src="card-placeholder.jpg" alt="Card 3">
-                <img class="tarot-card" id="card4" src="card-placeholder.jpg" alt="Card 4">
-                <img class="tarot-card" id="card5" src="card-placeholder.jpg" alt="Card 5">
+            <!-- Example cards (replace with actual images) -->
+            <div class="tarot-card" data-card-name="The Fool" data-card-description="A new journey is about to begin.">
+                <img src="card1.jpg" alt="Card 1">
             </div>
+            <div class="tarot-card" data-card-name="The Magician" data-card-description="You have the power to manifest your desires.">
+                <img src="card2.jpg" alt="Card 2">
+            </div>
+            <div class="tarot-card" data-card-name="The Lovers" data-card-description="A powerful connection with another is on the horizon.">
+                <img src="card3.jpg" alt="Card 3">
+            </div>
+            <!-- Add more tarot cards as needed -->
         </div>
-
-        <div class="card-details" id="card-details">
-            <h2 id="card-name">Card Name</h2>
-            <p id="card-description">This is a general description of the card. You can edit this later.</p>
+        <div class="card-info">
+            <h2 id="card-name"></h2>
+            <p id="card-description"></p>
         </div>
-
-        <!-- Footer -->
         <footer>
             <p>Powered by Kiki's World</p>
         </footer>
     </div>
+
+    <script src="tarot.js"></script>
 </body>
 </html>
