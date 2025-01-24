@@ -1,9 +1,9 @@
 /* General Styles for Tarot Page */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Comic Sans MS', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #1a1a1a, #3c3c3c); /* Dark gradient */
+    background: linear-gradient(to bottom, #3f1e65, #27133F, #1D0E2F); /* Dark gradient */
     color: white;
     overflow-x: hidden;
     position: relative;
@@ -22,7 +22,7 @@ body {
     font-size: 4rem;
     text-transform: uppercase;
     letter-spacing: 5px;
-    color: #ff00ff;
+    color: #7E3048;
     text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
     margin-top: 50px;
 }
