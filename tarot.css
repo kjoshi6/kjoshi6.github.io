@@ -3,7 +3,14 @@ body {
     font-family: 'Comic Sans MS', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #3f1e65, #27133F, #1D0E2F); /* Dark gradient */
+    body {
+  background: linear-gradient(to bottom, #3f1e65, #27133f, #1d0e2f); /* Three-color gradient */
+  color: #ffffff;
+  font-family: 'Cinzel', serif; /* Keeps the mystical theme */
+  margin: 0;
+  padding: 0;
+}
+
     color: white;
     overflow-x: hidden;
     position: relative;
