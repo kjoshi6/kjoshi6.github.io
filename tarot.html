@@ -1,37 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarot Reading</title>
- <link rel="stylesheet" href="tarot.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pick a Card</title>
+  <link rel="stylesheet" href="tarot.css"> <!-- Link to the new CSS file -->
 </head>
 <body>
-    <div class="container">
-        <h1 class="glowing-heading">Pick a Card</h1>
-        <div class="card-container">
-            <!-- Example cards (replace with actual images) -->
-            <div class="tarot-card" data-card-name="The Fool" data-card-description="A new journey is about to begin.">
-                <img src="card1.jpg" alt="Card 1">
-            </div>
-            <div class="tarot-card" data-card-name="The Magician" data-card-description="You have the power to manifest your desires.">
-                <img src="card2.jpg" alt="Card 2">
-            </div>
-            <div class="tarot-card" data-card-name="The Lovers" data-card-description="A powerful connection with another is on the horizon.">
-                <img src="card3.jpg" alt="Card 3">
-            </div>
-            <!-- Add more tarot cards as needed -->
-        </div>
-        <div class="card-info">
-            <h2 id="card-name"></h2>
-            <p id="card-description"></p>
-        </div>
-        <footer>
-            <p>Powered by Kiki's World</p>
-        </footer>
+  <div class="tarot-page">
+    <h1 class="glow-heading">Pick a Card</h1>
+    <a href="index.html" class="back-button">Back to Home</a>
+    <div class="card-container">
+      <!-- Replace src with your card image links -->
+      <img src="images/card1.jpg" alt="Card 1" class="tarot-card">
+      <img src="images/card2.jpg" alt="Card 2" class="tarot-card">
+      <img src="images/card3.jpg" alt="Card 3" class="tarot-card">
+      <img src="images/card4.jpg" alt="Card 4" class="tarot-card">
     </div>
-
-    <script src="tarot.js"></script>
+    <footer>Powered by Kiki's World</footer>
+  </div>
+  <script src="tarot.js"></script>
 </body>
 </html>
+
