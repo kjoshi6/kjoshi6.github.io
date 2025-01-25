@@ -1,34 +1,23 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.tarot-card');
-    const cardNameElement = document.getElementById('card-name');
-    const cardDescriptionElement = document.getElementById('card-description');
+// JavaScript for Tarot Card Interactivity
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".tarot-card");
+  
+  // Shuffle cards on page load
+  const container = document.querySelector(".card-container");
+  cards.forEach(card => container.appendChild(card)); // Randomize order
+  
+  // Highlight card when clicked
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      // Remove highlights from other cards
+      cards.forEach(c => c.classList.remove("selected"));
 
-    // Shuffle Cards (Simple version)
-    const shuffleDeck = () => {
-        const cardContainer = document.querySelector('.card-container');
-        const cardsArray = Array.from(cards);
-        for (let i = cardsArray.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            cardContainer.appendChild(cardsArray[j]);
-        }
-    };
+      // Highlight selected card
+      card.classList.add("selected");
 
-    // Shuffle on page load
-    shuffleDeck();
-
-    // Handle Card Click
-    cards.forEach(card => {
-        card.addEventListener('click', () => {
-            const cardName = card.getAttribute('data-card-name');
-            const cardDescription = card.getAttribute('data-card-description');
-
-            // Show card name and description
-            cardNameElement.textContent = cardName;
-            cardDescriptionElement.textContent = cardDescription;
-
-            // Apply smoke animation (for effect)
-            card.classList.add('highlight-card');
-        });
+      // Add smoke effect (replace with animation logic)
+      card.style.boxShadow = "0 0 30px rgba(255, 0, 255, 0.8)";
     });
+  });
 });
 
