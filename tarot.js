@@ -1,68 +1,55 @@
-const deckImages = [
-    // Example of how each card would look - Replace with actual images
-    'path/to/card1.jpg', 'path/to/card2.jpg', 'path/to/card3.jpg', // etc...
-    // Continue until all 78 tarot cards are included
+// Array to store all 78 tarot cards (replace with actual image paths)
+const tarotDeck = [
+  { name: "The Fool", img: "path_to_the_fool_image.jpg", description: "A new beginning, a leap of faith." },
+  { name: "The Magician", img: "path_to_the_magician_image.jpg", description: "Manifestation, power, skill." },
+  { name: "The High Priestess", img: "path_to_the_high_priestess_image.jpg", description: "Intuition, mystery, inner wisdom." },
+  // ... Add all 78 cards here ...
 ];
 
-let drawnCards = [];
-let maxCards = 3;
-
+// Function to shuffle the tarot deck
 function shuffleDeck() {
-    if (drawnCards.length >= maxCards) return; // Allow only up to 3 cards to be drawn
-    
-    // Shuffle deck logic (using Fisher-Yates shuffle)
-    let shuffledDeck = [...deckImages];
-    for (let i = shuffledDeck.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffledDeck[i], shuffledDeck[j]] = [shuffledDeck[j], shuffledDeck[i]];
-    }
-    
-    // Start drawing a card
-    drawCard(shuffledDeck[0]);
+  const shuffledDeck = [...tarotDeck].sort(() => Math.random() - 0.5); // Random shuffle
+  return shuffledDeck;
 }
 
-function drawCard(cardImage) {
-    if (drawnCards.length >= maxCards) return; // If 3 cards are drawn, do nothing
-    
-    // Create a div for the new card
-    const cardDiv = document.createElement('div');
-    cardDiv.classList.add('card');
-    cardDiv.style.backgroundImage = `url(${cardImage})`;
-    
-    // Apply the flip animation and smoke effect
-    cardDiv.classList.add('flip-card', 'smoke-effect');
-    
-    // Append card to the drawn-cards section
-    document.getElementById('drawn-cards').appendChild(cardDiv);
-    
-    // Add the card to drawnCards array to keep track
-    drawnCards.push(cardImage);
-    
-    // Set the card's name and description
-    setCardInfo(cardImage);
+// Function to draw a card
+function drawCard() {
+  const deck = shuffleDeck();
+  const card = deck[0]; // Draw the first card
+
+  // Create the card element and show it flipped with description
+  const cardElement = document.createElement('div');
+  cardElement.classList.add('card');
+  cardElement.dataset.name = card.name;
+  cardElement.dataset.description = card.description;
+  cardElement.dataset.img = card.img;
+
+  // Show the card as face down initially
+  document.getElementById('card-container').appendChild(cardElement);
+
+  // Add flip effect when clicked
+  cardElement.addEventListener('click', function() {
+    cardElement.classList.add('flipped');
+
+    // Display card name and description after flip
+    const cardName = document.getElementById('card-name');
+    const cardDescription = document.getElementById('card-description');
+
+    cardName.textContent = cardElement.dataset.name;
+    cardDescription.textContent = cardElement.dataset.description;
+  });
 }
 
-function setCardInfo(cardImage) {
-    const cardName = getCardName(cardImage);
-    const cardDescription = getCardDescription(cardImage);
-    
-    document.getElementById('card-name').textContent = cardName;
-    document.getElementById('card-description').textContent = cardDescription;
-}
+// Add event listener to shuffle deck when clicked
+document.getElementById('deck-shuffle').addEventListener('click', drawCard);
 
-function getCardName(cardImage) {
-    // Return the name based on the image, for now it's just an example
-    if (cardImage.includes('card1')) return 'The Fool';
-    if (cardImage.includes('card2')) return 'The Magician';
-    if (cardImage.includes('card3')) return 'The High Priestess';
-    return 'Unknown Card';
-}
-
-function getCardDescription(cardImage) {
-    // Return the description for the card, for now it's just an example
-    if (cardImage.includes('card1')) return 'A new beginning, full of potential.';
-    if (cardImage.includes('card2')) return 'Mastery, skill, and creativity.';
-    if (cardImage.includes('card3')) return 'Intuition and wisdom.';
-    return 'A mysterious force at work.';
-}
-
+// Optional: Add event listener to limit maximum of 3 cards drawn
+let drawnCardCount = 0;
+document.getElementById('deck-shuffle').addEventListener('click', function() {
+  if (drawnCardCount < 3) {
+    drawCard();
+    drawnCardCount++;
+  } else {
+    alert("You can only draw 3 cards.");
+  }
+});
