@@ -1,94 +1,90 @@
+/* Main Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #1D0E2F; /* Dark Gradient */
-    color: white;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #3f1e65, #27133F, #1D0E2F); /* Dark gradient */
+  color: white;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
-.tarot-container {
-    text-align: center;
-    padding: 20px;
+header {
+  padding: 20px;
+}
+
+#title {
+  font-size: 3rem;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #3f1e65;
+  margin: 20px 0;
 }
 
 #deck {
-    display: inline-block;
-    cursor: pointer;
-    margin-bottom: 50px;
+  margin-top: 50px;
 }
 
-#deck img {
-    width: 200px; /* Adjust size of deck image */
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+#deck-shuffle {
+  cursor: pointer;
+  animation: glitterCursor 1.5s linear infinite;
 }
 
-.drawn-cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
+#deck-image {
+  width: 200px;
+  height: auto;
 }
 
-.card-info {
-    margin-top: 30px;
-    font-size: 18px;
+#drawn-cards {
+  margin-top: 50px;
+}
+
+#card-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  width: 120px;
+  height: 180px;
+  background-image: url('path_to_card_back_image.jpg');
+  background-size: cover;
+  cursor: pointer;
+  transition: transform 0.3s;
+  position: relative;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.card.flipped {
+  background-image: url('path_to_flipped_card_image.jpg');
+  transform: rotateY(180deg);
+}
+
+#card-info {
+  margin-top: 50px;
+  font-size: 1.2rem;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
 }
 
 #card-name {
-    font-size: 24px;
-    font-weight: bold;
-    color: #FFD700; /* Gold color for card name */
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 #card-description {
-    font-size: 16px;
-    font-style: italic;
-    color: #D3D3D3; /* Light Grey for description */
+  font-size: 1rem;
 }
 
-#footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    padding: 10px;
-    background: #27133F; /* Dark footer */
+footer {
+  margin-top: 50px;
+  font-size: 1rem;
 }
 
-.smoke-effect {
-    animation: smoke 1.5s ease-out infinite;
+@keyframes glitterCursor {
+  0% { box-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #3f1e65; }
+  50% { box-shadow: 0 0 5px #3f1e65, 0 0 10px #27133F, 0 0 15px #1D0E2F; }
+  100% { box-shadow: 0 0 5px #1D0E2F, 0 0 10px #3f1e65, 0 0 15px #27133F; }
 }
-
-@keyframes smoke {
-    0% {
-        opacity: 0;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 0.5;
-        transform: scale(1.1);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(1);
-    }
-}
-
-/* Mobile Compatibility */
-@media (max-width: 600px) {
-    #deck img {
-        width: 150px;
-    }
-
-    .drawn-cards {
-        flex-direction: column;
-    }
-
-    #card-info {
-        font-size: 16px;
-    }
-}
-
-  
