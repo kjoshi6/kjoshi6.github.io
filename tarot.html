@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="tarot.css">
-    <script src="tarot.js" defer></script>
-    <title>Tarot Card Reading</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarot Page</title>
+  <link rel="stylesheet" href="tarot.css">
 </head>
 <body>
-    <div class="tarot-container">
-        <div id="deck" class="deck" onclick="shuffleDeck()"> 
-            <!-- Deck Image (Face Down) -->
-            <img src="path/to/deck-image.jpg" alt="Tarot Deck" id="deck-image">
-        </div>
+  <!-- Header -->
+  <header>
+    <h1 id="title">Pick a Card</h1>
+  </header>
 
-        <div id="drawn-cards" class="drawn-cards">
-            <!-- Drawn Cards will appear here -->
-        </div>
-
-        <div id="card-info" class="card-info">
-            <h2 id="card-name">Card Name</h2>
-            <p id="card-description">Card Description</p>
-        </div>
-
-        <div id="footer">
-            <p>Powered by Kiki's World</p>
-        </div>
+  <!-- Deck -->
+  <div id="deck">
+    <div id="deck-shuffle">
+      <img src="path_to_your_deck_image.jpg" alt="deck of cards" id="deck-image">
     </div>
+  </div>
+
+  <!-- Drawn Cards -->
+  <div id="drawn-cards">
+    <h2>Your Drawn Cards</h2>
+    <div id="card-container">
+      <!-- Drawn cards will appear here -->
+    </div>
+  </div>
+
+  <!-- Card Info (Name & Description) -->
+  <div id="card-info">
+    <div id="card-name"></div>
+    <div id="card-description"></div>
+  </div>
+
+  <footer>
+    <p>Powered by Kiki's World</p>
+  </footer>
+
+  <script src="tarot.js"></script>
 </body>
 </html>
+
 
