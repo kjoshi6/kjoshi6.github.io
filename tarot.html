@@ -1,44 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tarot Page</title>
-  <link rel="stylesheet" href="tarot.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pick a Card - Tarot</title>
+    <link rel="stylesheet" href="tarot.css">
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <h1 id="title">Pick a Card</h1>
-  </header>
+    <header>
+        <h1 class="glowing-text">Pick a Card</h1>
+    </header>
+    
+    <main>
+        <div id="card-container">
+            <!-- Cards will be dynamically generated here -->
+        </div>
+        
+        <div id="card-info">
+            <h2 id="card-name">Card Name</h2>
+            <p id="card-description">Card description goes here.</p>
+        </div>
+        
+        <button id="back-to-home" onclick="window.location.href='index.html'">Back to Home</button>
+    </main>
 
-  <!-- Deck -->
-  <div id="deck">
-    <div id="deck-shuffle">
-      <img src="https://opengameart.org/sites/default/files/styles/medium/public/card%20back%20purple.png" alt="deck of cards" id="deck-image">
-    </div>
-  </div>
+    <footer>
+        <p>Powered by Kiki's World</p>
+    </footer>
 
-  <!-- Drawn Cards -->
-  <div id="drawn-cards">
-    <h2>Your Drawn Cards</h2>
-    <div id="card-container">
-      <!-- Drawn cards will appear here -->
-    </div>
-  </div>
-
-  <!-- Card Info (Name & Description) -->
-  <div id="card-info">
-    <div id="card-name"></div>
-    <div id="card-description"></div>
-  </div>
-
-  <footer>
-    <p>Powered by Kiki's World</p>
-  </footer>
-
-  <script src="tarot.js"></script>
+    <script src="tarot.js"></script>
 </body>
 </html>
-
-
