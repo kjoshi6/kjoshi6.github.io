@@ -43,13 +43,4 @@ function drawCard() {
 // Add event listener to shuffle deck when clicked
 document.getElementById('deck-shuffle').addEventListener('click', drawCard);
 
-// Optional: Add event listener to limit maximum of 3 cards drawn
-let drawnCardCount = 0;
-document.getElementById('deck-shuffle').addEventListener('click', function() {
-  if (drawnCardCount < 3) {
-    drawCard();
-    drawnCardCount++;
-  } else {
-    alert("You can only draw 3 cards.");
-  }
 });
