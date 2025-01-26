@@ -43,7 +43,7 @@ main {
 .card {
     width: 150px;
     height: 225px;
-    background: url('card_back.jpg') no-repeat center center;
+    background: url('https://preview.redd.it/look-for-opinions-on-my-2-playing-card-back-designs-look-to-v0-r4rle6ipe3fc1.png?width=640&crop=smart&auto=webp&s=d4f570073deff1e24df650d8369aaaaae3b7ba39') no-repeat center center;
     background-size: cover;
     border: 2px solid #fff;
     border-radius: 8px;
@@ -53,7 +53,7 @@ main {
 }
 
 .card.flipped {
-    background: url('card_face.jpg') no-repeat center center;
+    background: url('https://cache.getarchive.net/Prod/thumb/cdn2/L3Bob3RvLzE5MTAvMTIvMzEvdGFyb3QtbmluZS1vZi13YW5kcy0wYWQ3MTQtMTAyNC5qcGc%3D/240/413/webp') no-repeat center center;
     background-size: cover;
 }
 
@@ -95,7 +95,7 @@ main {
     left: 50%;
     width: 100px;
     height: 100px;
-    background: url('smoke.png') no-repeat center center;
+    background: url('shttps://thumbs.dreamstime.com/b/pink-smoke-effect-realistic-isolated-effect-use-as-decoration-covering-transparent-background-pink-331494381.jpg') no-repeat center center;
     background-size: cover;
     transform: translate(-50%, -50%);
     animation: smoke 2s infinite;
