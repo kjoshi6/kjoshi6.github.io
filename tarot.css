@@ -1,4 +1,4 @@
-/* Global styling */
+/* Global Styling */
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    background: linear-gradient(135deg, #3f1e65, #764ea3, #1D0E2F); /* Gradient */
+    background: linear-gradient(135deg, #3f1e65, #764ea3, #1D0E2F);
     color: white;
     height: 100vh;
     overflow: hidden;
@@ -35,7 +35,8 @@ main {
 
 #card-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
     width: 100%;
     margin: 30px 0;
 }
@@ -49,7 +50,17 @@ main {
     border-radius: 8px;
     cursor: pointer;
     position: relative;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.6s, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+.card:focus {
+    outline: 3px solid #ff00ff;
+    transform: scale(1.05);
 }
 
 .card.flipped {
@@ -57,12 +68,56 @@ main {
     background-size: cover;
 }
 
+/* Deck Placeholder */
+.deck-placeholder {
+    width: 150px;
+    height: 200px;
+    background: url('path/to/deck-image.jpg') no-repeat center center;
+    background-size: cover;
+    margin: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.deck-placeholder.shuffle-animation {
+    animation: shuffle 1.5s ease infinite;
+}
+
+@keyframes shuffle {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px) rotate(-5deg); }
+    50% { transform: translateX(10px) rotate(5deg); }
+    75% { transform: translateX(-10px) rotate(-5deg); }
+    100% { transform: translateX(0); }
+}
+
+/* Card Info */
 #card-info {
     display: none;
     text-align: center;
     margin-top: 30px;
 }
 
+/* Smoke Animation */
+.smoke-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('path/to/smoke.png') no-repeat center center;
+    background-size: cover;
+    opacity: 0;
+    animation: smoke-animation 2s ease forwards;
+}
+
+@keyframes smoke-animation {
+    0% { opacity: 0; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.2); }
+    100% { opacity: 0; transform: scale(1.5); }
+}
+
+/* Back-to-Home Button */
 #back-to-home {
     background-color: #3f1e65;
     color: white;
@@ -77,30 +132,7 @@ main {
     background-color: #27133F;
 }
 
-/* Smoke animation */
-@keyframes smoke {
-    0% {
-        transform: scale(1);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(2);
-        opacity: 1;
-    }
-}
-
-.smoke-effect {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100px;
-    height: 100px;
-    background: url('shttps://thumbs.dreamstime.com/b/pink-smoke-effect-realistic-isolated-effect-use-as-decoration-covering-transparent-background-pink-331494381.jpg') no-repeat center center;
-    background-size: cover;
-    transform: translate(-50%, -50%);
-    animation: smoke 2s infinite;
-}
-
+/* Footer */
 footer {
     position: absolute;
     bottom: 10px;
@@ -108,5 +140,21 @@ footer {
     text-align: center;
     color: white;
     font-size: 0.8rem;
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+    .card {
+        width: 100px;
+        height: 150px;
+    }
+
+    .glowing-text {
+        font-size: 2rem;
+    }
+
+    #card-container {
+        flex-wrap: wrap;
+    }
 }
 
