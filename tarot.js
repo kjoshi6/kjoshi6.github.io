@@ -11,18 +11,26 @@ const cardContainer = document.getElementById('card-container');
 const cardInfo = document.getElementById('card-info');
 const cardName = document.getElementById('card-name');
 const cardDescription = document.getElementById('card-description');
+const drawButton = document.getElementById('draw-button'); // Add a button for shuffling and drawing cards
 
-function createCards() {
+function createDeckPlaceholder() {
+    // Show a single card deck image
+    const deckPlaceholder = document.createElement('div');
+    deckPlaceholder.id = 'deck-placeholder';
+    deckPlaceholder.classList.add('deck-placeholder');
+    deckPlaceholder.addEventListener('click', shuffleAndDraw);
+    cardContainer.appendChild(deckPlaceholder);
+}
+
+function shuffleAndDraw() {
+    // Shuffle the deck and animate the shuffle
     shuffledDeck = shuffleDeck(cards);
+    animateShuffle();
 
-    // Create card elements dynamically
-    shuffledDeck.forEach((card, index) => {
-        const cardElement = document.createElement('div');
-        cardElement.classList.add('card');
-        cardElement.dataset.index = index;
-        cardElement.addEventListener('click', () => flipCard(cardElement, card));
-        cardContainer.appendChild(cardElement);
-    });
+    // Allow users to draw a card after shuffle animation
+    setTimeout(() => {
+        drawButton.style.display = 'block'; // Show draw button
+    }, 1500); // Wait for shuffle animation to complete
 }
 
 function shuffleDeck(deck) {
@@ -34,28 +42,49 @@ function shuffleDeck(deck) {
     return shuffled;
 }
 
-function flipCard(cardElement, card) {
-    if (cardElement.classList.contains('flipped')) return;
+function animateShuffle() {
+    const deckPlaceholder = document.getElementById('deck-placeholder');
+    deckPlaceholder.classList.add('shuffle-animation');
+    setTimeout(() => {
+        deckPlaceholder.classList.remove('shuffle-animation');
+    }, 1500);
+}
 
-    cardElement.classList.add('flipped');
-    
-    // Show smoke effect
+function drawCard() {
+    if (shuffledDeck.length === 0) {
+        alert('No cards left in the deck!');
+        return;
+    }
+
+    const card = shuffledDeck.pop(); // Draw the top card from the shuffled deck
+
+    // Create card element with smoke effect
+    const cardElement = document.createElement('div');
+    cardElement.classList.add('card', 'flipped');
     const smoke = document.createElement('div');
     smoke.classList.add('smoke-effect');
     cardElement.appendChild(smoke);
 
-    // Display card info
-    cardName.textContent = card.name;
-    cardDescription.textContent = card.description;
-    cardInfo.style.display = 'block';
+    // Add card info to the DOM
+    const cardImage = document.createElement('div'); // Placeholder for image
+    cardImage.classList.add('card-image');
+    cardElement.appendChild(cardImage);
 
-    // Hide cards after drawing 3 cards
-    let drawnCards = document.querySelectorAll('.card.flipped');
-    if (drawnCards.length >= 3) {
-        const remainingCards = document.querySelectorAll('.card:not(.flipped)');
-        remainingCards.forEach(card => card.style.display = 'none');
+    const cardNameElement = document.createElement('h2');
+    cardNameElement.textContent = card.name;
+    cardElement.appendChild(cardNameElement);
+
+    const cardDescriptionElement = document.createElement('p');
+    cardDescriptionElement.textContent = card.description;
+    cardElement.appendChild(cardDescriptionElement);
+
+    // Add to card container and hide deck placeholder if all cards are drawn
+    cardContainer.appendChild(cardElement);
+
+    if (shuffledDeck.length === 0) {
+        document.getElementById('deck-placeholder').style.display = 'none';
     }
 }
 
-// Call the function to create cards
-createCards();
+// Initialize the placeholder deck
+createDeckPlaceholder();
