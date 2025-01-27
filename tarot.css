@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    background: linear-gradient(135deg, #3f1e65, #27133F, #1D0E2F); /* Gradient */
+    background: linear-gradient(135deg, #3f1e65, #764ea3, #1D0E2F); /* Gradient */
     color: white;
     height: 100vh;
     overflow: hidden;
