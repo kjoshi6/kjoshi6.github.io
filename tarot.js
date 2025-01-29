@@ -5,6 +5,7 @@ const cards = [
     // Add all 78 tarot cards here with their image paths and descriptions
 ];
 
+
 let shuffledDeck = [];
 
 const cardContainer = document.getElementById('card-container');
@@ -20,17 +21,23 @@ function createCards() {
         cardElement.classList.add('card');
         cardElement.dataset.index = index;
 
+        // Create front (default card back)
         const frontFace = document.createElement('div');
         frontFace.classList.add('front');
+        frontFace.style.backgroundImage = "url('https://preview.redd.it/look-for-opinions-on-my-2-playing-card-back-designs-look-to-v0-r4rle6ipe3fc1.png?width=640&crop=smart&auto=webp&s=d4f570073deff1e24df650d8369aaaaae3b7ba39')"; // Set card back image
 
+        // Create back (random tarot card)
         const backFace = document.createElement('div');
         backFace.classList.add('back');
-        backFace.style.backgroundImage = `url(${card.image})`;
+        backFace.style.backgroundImage = `url(${card.image})`; // Randomized tarot card image
 
+        // Append front and back to card
         cardElement.appendChild(frontFace);
         cardElement.appendChild(backFace);
 
+        // Add flip functionality
         cardElement.addEventListener('click', () => flipCard(cardElement, card));
+
         cardContainer.appendChild(cardElement);
     });
 }
@@ -45,6 +52,17 @@ function shuffleDeck(deck) {
 }
 
 function flipCard(cardElement, card) {
-    if (
-::contentReference[oaicite:0]{index=0}
- 
+    if (!cardElement.classList.contains('flipped')) {
+        cardElement.classList.add('flipped');
+
+        // Show card info
+        cardInfo.style.display = 'block';
+        cardName.textContent = card.name;
+        cardDescription.textContent = card.description;
+        cardInfo.classList.add('glowing');
+    }
+}
+
+// Initialize the card deck
+createCards();
+
