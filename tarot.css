@@ -1,4 +1,4 @@
-/* Global Styling */
+/* Global styling */
 * {
     margin: 0;
     padding: 0;
@@ -35,8 +35,7 @@ main {
 
 #card-container {
     display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    justify-content: space-around;
     width: 100%;
     margin: 30px 0;
 }
@@ -44,95 +43,53 @@ main {
 .card {
     width: 150px;
     height: 225px;
-    background: url('https://preview.redd.it/look-for-opinions-on-my-2-playing-card-back-designs-look-to-v0-r4rle6ipe3fc1.png?width=640&crop=smart&auto=webp&s=d4f570073deff1e24df650d8369aaaaae3b7ba39') no-repeat center center;
+    background: url('path/to/card-back-image.jpg') no-repeat center center;
     background-size: cover;
     border: 2px solid #fff;
     border-radius: 8px;
     cursor: pointer;
     position: relative;
-    transition: transform 0.6s, box-shadow 0.3s ease-in-out;
-}
-
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
-}
-
-.card:focus {
-    outline: 3px solid #ff00ff;
-    transform: scale(1.05);
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
 }
 
 .card.flipped {
-    background: url('https://cache.getarchive.net/Prod/thumb/cdn2/L3Bob3RvLzE5MTAvMTIvMzEvdGFyb3QtbmluZS1vZi13YW5kcy0wYWQ3MTQtMTAyNC5qcGc%3D/240/413/webp') no-repeat center center;
+    transform: rotateY(180deg);
+}
+
+.card .front,
+.card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+}
+
+.card .back {
     background-size: cover;
+    transform: rotateY(180deg);
 }
 
-/* Deck Placeholder */
-.deck-placeholder {
-    width: 150px;
-    height: 200px;
-    background: url('https://preview.redd.it/look-for-opinions-on-my-2-playing-card-back-designs-look-to-v0-r4rle6ipe3fc1.png?width=640&crop=smart&auto=webp&s=d4f570073deff1e24df650d8369aaaaae3b7ba39') no-repeat center center;
-    background-size: cover;
-    margin: auto;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.deck-placeholder.shuffle-animation {
-    animation: shuffle 1.5s ease infinite;
-}
-
-@keyframes shuffle {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-10px) rotate(-5deg); }
-    50% { transform: translateX(10px) rotate(5deg); }
-    75% { transform: translateX(-10px) rotate(-5deg); }
-    100% { transform: translateX(0); }
-}
-
-/* Card Info */
 #card-info {
     display: none;
     text-align: center;
     margin-top: 30px;
 }
 
-/* Smoke Animation */
-.smoke-effect {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://thumbs.dreamstime.com/b/pink-smoke-effect-realistic-isolated-effect-use-as-decoration-covering-transparent-background-pink-331494381.jpg') no-repeat center center;
-    background-size: cover;
-    opacity: 0;
-    animation: smoke-animation 2s ease forwards;
+#card-info.glowing {
+    animation: glow 1s infinite alternate;
 }
 
-@keyframes smoke-animation {
-    0% { opacity: 0; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.2); }
-    100% { opacity: 0; transform: scale(1.5); }
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+    }
+    to {
+        text-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
+    }
 }
 
-/* Back-to-Home Button */
-#back-to-home {
-    background-color: #3f1e65;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-#back-to-home:hover {
-    background-color: #27133F;
-}
-
-/* Footer */
 footer {
     position: absolute;
     bottom: 10px;
@@ -140,21 +97,5 @@ footer {
     text-align: center;
     color: white;
     font-size: 0.8rem;
-}
-
-/* Media Queries */
-@media (max-width: 600px) {
-    .card {
-        width: 100px;
-        height: 150px;
-    }
-
-    .glowing-text {
-        font-size: 2rem;
-    }
-
-    #card-container {
-        flex-wrap: wrap;
-    }
 }
 
