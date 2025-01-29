@@ -1,7 +1,7 @@
 const cards = [
-    { name: 'The Fool', image: 'path/to/the-fool.jpg', description: 'A new journey begins.' },
-    { name: 'The Magician', image: 'path/to/the-magician.jpg', description: 'You have the tools to manifest your dreams.' },
-    { name: 'The High Priestess', image: 'path/to/the-high-priestess.jpg', description: 'Trust your intuition.' },
+    { name: 'The Fool', image: 'https://cache.getarchive.net/Prod/thumb/cdn2/L3Bob3RvLzE5MDkvMTIvMzEvcndzLXRhcm90LTAwLWZvb2wtMDAzNzgwLTEwMjQuanBn/240/418/webp', description: 'A new journey begins.' },
+    { name: 'The Magician', image: 'https://cache.getarchive.net/Prod/thumb/cdn2/L3Bob3RvLzE5MDkvMTIvMzEvcndzLXRhcm90LTAxLW1hZ2ljaWFuLWQ3NjUxZS0xMDI0LmpwZw%3D%3D/240/422/webp', description: 'You have the tools to manifest your dreams.' },
+    { name: 'The High Priestess', image: 'https://cache.getarchive.net/Prod/thumb/cdn2/L3Bob3RvLzE5MDkvMTIvMzEvcndzLXRhcm90LTAyLWhpZ2gtcHJpZXN0ZXNzLWU4MDliOS0xMDI0LmpwZw%3D%3D/240/416/webp', description: 'Trust your intuition.' },
     // Add all 78 tarot cards here with their image paths and descriptions
 ];
 
