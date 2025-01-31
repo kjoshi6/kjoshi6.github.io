@@ -77,20 +77,21 @@ document.addEventListener("DOMContentLoaded", function () {
         { name: "Knight of Swords", image: "", description: "Action, ambition, and swift decision-making." },
         { name: "Queen of Swords", image: "", description: "Clear thinking, independence, and mental strength." },
         { name: "King of Swords", image: "", description: "Intellect, authority, and strategic thinking." },
-        { name: "Ace of Pentacles", image: "", description: "New financial opportunities, prosperity, and material gain." },
-        { name: "Two of Pentacles", image: "", description: "Balance, juggling priorities, and adaptability." },
-        { name: "Three of Pentacles", image: "", description: "Collaboration, teamwork, and building something solid." },
-        { name: "Four of Pentacles", image: "", description: "Security, control, and holding on to what you have." },
-        { name: "Five of Pentacles", image: "", description: "Financial loss, hardship, and struggle." },
-        { name: "Six of Pentacles", image: "", description: "Generosity, balance in giving and receiving." },
-        { name: "Seven of Pentacles", image: "", description: "Patience, assessment, and long-term goals." },
-        { name: "Eight of Pentacles", image: "", description: "Hard work, dedication, and skill development." },
-        { name: "Nine of Pentacles", image: "", description: "Financial independence, luxury, and self-sufficiency." },
-        { name: "Ten of Pentacles", image: "", description: "Wealth, family, and long-term success." },
-        { name: "Page of Pentacles", image: "", description: "Ambition, learning, and new opportunities." },
-        { name: "Knight of Pentacles", image: "", description: "Practicality, diligence, and responsibility." },
-        { name: "Queen of Pentacles", image: "", description: "Nurturing, practicality, and domestic harmony." },
-        { name: "King of Pentacles", image: "", description: "Success, stability, and financial mastery." }
+        
+        { name: "Ace of Pentacles", image: "https://cache.getarchive.net/Prod/thumb/cdn2/L3Bob3RvLzE5MTAvMTIvMzEvcGVudHMtMDEtYWVmOTljLTEwMjQuanBn/240/415/webp", description: "New financial opportunities, prosperity, and material gain." },
+        { name: "Two of Pentacles", image: "https://cache.getarchive.net/Prod/thumb/cdn2/L3Bob3RvLzE5MTAvMTIvMzEvcGVudHMtMDItNzZiM2QyLTEwMjQuanBn/240/414/webp", description: "Balance, juggling priorities, and adaptability." },
+        { name: "Three of Pentacles", image: "https://cache.getarchive.net/Prod/thumb/cdn2/L3Bob3RvLzE5MTAvMTIvMzEvcGVudHMtMDMtZTYzOWUzLTEwMjQuanBn/240/412/webp", description: "Collaboration, teamwork, and building something solid." },
+        { name: "Four of Pentacles", image: "https://cache.getarchive.net/Prod/thumb/cdn2/L3Bob3RvLzE5MTAvMTIvMzEvcGVudHMtMDQtOTEwOTAzLTEwMjQuanBn/240/415/webp", description: "Security, control, and holding on to what you have." },
+        { name: "Five of Pentacles", image: "https://cache.getarchive.net/Prod/thumb/cdn2/L3Bob3RvLzE5MTAvMTIvMzEvcGVudHMtMDUtYTY1OTY1LTEwMjQuanBn/240/414/webp", description: "Financial loss, hardship, and struggle." },
+        { name: "Six of Pentacles", image: "https://cache.getarchive.net/Prod/thumb/cdn2/L3Bob3RvLzE5MTAvMTIvMzEvcGVudHMtMDYtNDYxMzFiLTEwMjQuanBn/240/415/webp", description: "Generosity, balance in giving and receiving." },
+        { name: "Seven of Pentacles", image: "https://cache.getarchive.net/Prod/thumb/cdn2/L3Bob3RvLzE5MTAvMTIvMzEvcGVudHMtMDctNDBmZjgyLTEwMjQuanBn/240/413/webp", description: "Patience, assessment, and long-term goals." },
+        { name: "Eight of Pentacles", image: "https://cache.getarchive.net/Prod/thumb/cdn2/L3Bob3RvLzE5MTAvMTIvMzEvcGVudHMtMDgtNzIyMjlhLTEwMjQuanBn/240/412/webp", description: "Hard work, dedication, and skill development." },
+        { name: "Nine of Pentacles", image: "https://cache.getarchive.net/Prod/thumb/cdn2/L3Bob3RvLzE5MTAvMTIvMzEvcGVudHMtMDktMDQxNjE4LTEwMjQuanBn/240/415/webp", description: "Financial independence, luxury, and self-sufficiency." },
+        { name: "Ten of Pentacles", image: "https://cache.getarchive.net/Prod/thumb/cdn2/L3Bob3RvLzE5MTAvMTIvMzEvcGVudHMtMTAtOWJmMzg0LTEwMjQuanBn/240/413/webp", description: "Wealth, family, and long-term success." },
+        { name: "Page of Pentacles", image: "https://cache.getarchive.net/Prod/thumb/cdn2/L3Bob3RvLzE5MTAvMTIvMzEvcGVudHMtMTEtM2EzNDc5LTEwMjQuanBn/240/414/webp", description: "Ambition, learning, and new opportunities." },
+        { name: "Knight of Pentacles", image: "https://cache.getarchive.net/Prod/thumb/cdn2/L3Bob3RvLzE5MTAvMTIvMzEvcGVudHMtMTItOWMwNDU3LTEwMjQuanBn/240/414/webp", description: "Practicality, diligence, and responsibility." },
+        { name: "Queen of Pentacles", image: "https://cache.getarchive.net/Prod/thumb/cdn2/L3Bob3RvLzE5MTAvMTIvMzEvcGVudHMtMTMtN2FmYWU3LTEwMjQuanBn/240/415/webp", description: "Nurturing, practicality, and domestic harmony." },
+        { name: "King of Pentacles", image: "https://cache.getarchive.net/Prod/thumb/cdn2/L3Bob3RvLzE5MTAvMTIvMzEvcGVudHMtMTQtNzcxZjc1LTEwMjQuanBn/240/416/webp", description: "Success, stability, and financial mastery." }
     ];
 
     const cardInfo = document.getElementById("card-info");
