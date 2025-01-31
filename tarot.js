@@ -3,6 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const card = document.createElement("div");
     card.classList.add("card");
 
+      // 1. Create front face (which will be empty or have a fixed image)
+    const frontFace = document.createElement("div");
+    frontFace.classList.add("front");
+    
     // 2. Create back face (which will show the randomized card)
     const backFace = document.createElement("div");
     backFace.classList.add("back");
