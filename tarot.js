@@ -6,10 +6,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Create front (card back)
     const frontFace = document.createElement("div");
     frontFace.classList.add("front");
-    frontFace.style.backgroundImage = "url('https://preview.redd.it/look-for-opinions-on-my-2-playing-card-back-designs-look-to-v0-r4rle6ipe3fc1.png?width=640&crop=smart&auto=webp&s=d4f570073deff1e24df650d8369aaaaae3b7ba39')"; // Card back image
 
-    // Create back (for the tarot card)
-    const backFace = document.createElement("div");
+    backFace.classList.add("back");
+    backFace.style.backgroundImage = "url('https://preview.redd.it/look-for-opinions-on-my-2-playing-card-back-designs-look-to-v0-r4rle6ipe3fc1.png?width=640&crop=smart&auto=webp&s=d4f570073deff1e24df650d8369aaaaae3b7ba39')"; // Card back image
+
     backFace.classList.add("back");
 
     // Tarot cards array
