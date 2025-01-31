@@ -61,7 +61,7 @@ header {
 }
 
 .card .front {
-    background-size: cover;
+    background: none;  /* Remove any background image */
     transform: rotateY(180deg);
 }
 
@@ -94,7 +94,7 @@ header {
 }
 
 footer {
-    bottom: 20px;
+    bottom: 10px;
     text-align: center;
     font-size: 0.8rem;
 }
