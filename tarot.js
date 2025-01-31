@@ -3,12 +3,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const card = document.createElement("div");
     card.classList.add("card");
 
-    // Create front (card back)
+    // 1. Create front face with a general image (this is static)
     const frontFace = document.createElement("div");
     frontFace.classList.add("front");
+    frontFace.style.backgroundImage = "url('https://opengameart.org/sites/default/files/card%20back%20purple.png')";
+    frontFace.style.backgroundSize = "cover"; // Make sure it covers the front properly
 
-    backFace.classList.add("back");
-
+    // 2. Create back face (which will show the randomized card)
+    const backFace = document.createElement("div");
     backFace.classList.add("back");
 
     // Tarot cards array
