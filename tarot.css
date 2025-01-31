@@ -68,7 +68,9 @@ header {
     backface-visibility: hidden; /* Ensure the back doesn't show when flipped */
     border-radius: 8px;
     border: 2px solid #fff;
-    background-size: cover;
+    background-size: contain;
+    background-position:center:
+    background-repeat: no-repeat:
 }
 
 
