@@ -61,7 +61,7 @@ header {
 }
 
 .card .front {
-    background: none;  /* Remove any background image */
+    background: red;  /* Remove any background image */
     transform: rotateY(180deg);
 }
 
