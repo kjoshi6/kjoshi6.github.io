@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!card.classList.contains("flipped")) {
             const randomCard = getRandomCard();
             backFace.style.backgroundImage = `url(${randomCard.image})`;
+            frontFace.style.backgroundImage = `url(${randomCard.image})`;
             cardName.textContent = randomCard.name;
             cardDescription.textContent = randomCard.description;
             cardInfo.style.display = "block";
