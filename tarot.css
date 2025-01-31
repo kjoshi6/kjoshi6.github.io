@@ -62,9 +62,13 @@ header {
 }
 
 .card .front {
-    background: red;  /* Remove any background image */
+    background: none;  /* Remove any background image */
     transform: rotateY(180deg);
+    backface-visibility: hidden; /* Ensure the back doesn't show when flipped */
+    border-radius: 8px;
+    border: 2px solid #fff;
 }
+
 
 .card.flipped {
     transform: rotateY(180deg);
