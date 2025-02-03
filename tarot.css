@@ -131,3 +131,18 @@ footer {
     width: 100%;
 }
 
+Glitter cursor
+.sparkle {
+    position: absolute;
+    background: white; /* Star color */
+    clip-path: polygon(
+        50% 0%, 61% 35%, 98% 35%, 
+        68% 57%, 79% 91%, 50% 70%, 
+        21% 91%, 32% 57%, 2% 35%, 
+        39% 35%
+    ); /* Creates a star shape */
+    pointer-events: none;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8)); /* Glow effect */
+}
+
+
