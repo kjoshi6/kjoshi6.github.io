@@ -15,8 +15,20 @@ document.addEventListener("mousemove", (e) => {
     // Append the sparkle to the body
     document.body.appendChild(sparkle);
 
-    // Remove the sparkle after 1 second
+    // Animate twinkling effect
+    sparkle.animate(
+        [
+            { opacity: 1, filter: "blur(0px)", transform: "scale(1)" }, 
+            { opacity: 0.6, filter: "blur(1px)", transform: "scale(1.2)" },
+            { opacity: 1, filter: "blur(0.5px)", transform: "scale(1)" }, 
+            { opacity: 0 }
+        ],
+        { duration: 1000, easing: "ease-in-out" } // 1 second twinkle animation
+    );
+
+    // Remove sparkle after animation
     setTimeout(() => {
         sparkle.remove();
     }, 1000); // Remove after 1 second
 });
+
