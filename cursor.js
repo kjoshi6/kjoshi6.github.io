@@ -1,4 +1,5 @@
 document.addEventListener("mousemove", (e) => {
+    console.log('Cursor JS Loaded'); // This will tell you if the script is being triggered
     const sparkle = document.createElement("div");
     sparkle.className = "sparkle";
 
