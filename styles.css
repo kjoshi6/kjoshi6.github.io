@@ -124,3 +124,34 @@ body {
     background-color: #3f1e65;
     box-shadow: 0 0 10px #AE4169, 0 0 20px #f3c3d6;
 }
+.sparkle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8); /* Soft, glowing white */
+    clip-path: polygon(
+        50% 0%, 61% 35%, 98% 35%, 
+        68% 57%, 79% 91%, 50% 70%, 
+        21% 91%, 32% 57%, 2% 35%, 
+        39% 35%
+    ); /* Star shape */
+    pointer-events: none;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8)); /* Glow effect */
+    z-index: 9999; /* Keep it on top */
+    transform: scale(0); /* Start with small scale */
+    animation: sparkle-animation 1s ease-out forwards;
+}
+
+@keyframes sparkle-animation {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5); /* Slightly enlarge the sparkle */
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
