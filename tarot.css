@@ -90,7 +90,30 @@ header {
 #card-info.glowing {
     animation: glow 1s infinite alternate;
 }
+/* Menu Items */
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
 
+.menu-item {
+    padding: 15px 25px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #AE4169, #f3c3d6);
+    box-shadow: 0 0 15px #AE4169, 0 0 30px #3f1e65;
+    text-decoration: none;
+    color: #f0ebf1;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #f0ebf1, 0 0 40px #f3c3d6;
+    
 @keyframes glow {
     from {
         text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
