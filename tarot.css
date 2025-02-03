@@ -15,7 +15,6 @@ body {
     align-items: center;
     justify-content: flex-start;
     flex-grow: 1;
-     
 }
 
 header {
@@ -35,8 +34,7 @@ header {
     align-items: center;
     width: 100%;
     margin: 30px 0;
-    min-height: 300px; /* Ensures it has height */
-
+    min-height: 300px;
 }
 
 .card {
@@ -63,14 +61,13 @@ header {
 }
 
 .card .back {
-    background: none;  /* Remove any background image */
+    background: none;
     transform: rotateY(180deg);
-    backface-visibility: hidden; /* Ensure the back doesn't show when flipped */
+    backface-visibility: hidden;
     border-radius: 8px;
     border: 2px solid #fff;
     background-size: cover;
 }
-
 
 .card.flipped {
     transform: rotateY(180deg);
@@ -91,7 +88,6 @@ header {
     animation: glow 1s infinite alternate;
 }
 
-    
 @keyframes glow {
     from {
         text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
@@ -102,26 +98,45 @@ header {
 }
 
 footer {
-    position: absolute; /* Ensures the footer stays at the bottom of the page */
+    position: fixed;
     bottom: 20px;
+    width: 100%;
     text-align: center;
     font-size: 0.8rem;
-    width: 100%;
+    color: white;
+}
+
+#back-home {
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #fff;
+    box-shadow: 0 0 10px #ff00ff;
+}
+
+#back-home:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 20px #ff00ff;
 }
 
 .sparkle {
     position: absolute;
-    background: rgba(255, 255, 255, 0.8); /* Soft, glowing white */
+    background: rgba(255, 255, 255, 0.8);
     clip-path: polygon(
         50% 0%, 61% 35%, 98% 35%, 
         68% 57%, 79% 91%, 50% 70%, 
         21% 91%, 32% 57%, 2% 35%, 
         39% 35%
-    ); /* Star shape */
+    );
     pointer-events: none;
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8)); /* Glow effect */
-    z-index: 9999; /* Keep it on top */
-    transform: scale(0); /* Start with small scale */
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+    z-index: 9999;
+    transform: scale(0);
     animation: sparkle-animation 1s ease-out forwards;
 }
 
@@ -131,7 +146,7 @@ footer {
         opacity: 1;
     }
     50% {
-        transform: scale(1.5); /* Slightly enlarge the sparkle */
+        transform: scale(1.5);
         opacity: 0.7;
     }
     100% {
@@ -139,5 +154,4 @@ footer {
         opacity: 0;
     }
 }
-
 
