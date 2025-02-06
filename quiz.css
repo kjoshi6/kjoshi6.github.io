@@ -3,7 +3,7 @@ body {
     font-family: "Comic Sans MS", sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #5c9bed, #98d9c8, #98d99d); blue --> green
+    background: linear-gradient(135deg, #5c9bed, #98d9c8, #98d99d);
     background-size: 400% 400%;
     animation: backgroundShift 10s infinite;
     color: #ffffff;
