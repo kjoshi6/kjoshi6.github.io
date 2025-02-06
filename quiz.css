@@ -9,6 +9,10 @@ body {
     animation: backgroundShift 10s infinite;
     color: #ffffff;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Use full viewport height */
+    justify-content: space-between; /* Distribute content */
 }
 
 /* Glowing Heading */
@@ -25,8 +29,9 @@ body {
 }
 
 #quiz-container {
+    flex-grow: 1; /* Allows quiz container to take up available space */
     width: 80%;
-    height: 80vh; /* Makes the container fill most of the viewport height */
+    height: 80vh;
     margin: 0 auto;
     padding: 40px;
     display: flex;
@@ -34,10 +39,10 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: rgba(255, 255, 255, 0.9); /* Slight transparency to let the gradient show through */
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 1s ease-out; /* Fade-in animation */
+    animation: fadeIn 1s ease-out;
     position: relative;
 
     /* Glowing effect on the entire container */
@@ -199,4 +204,32 @@ body {
         transform: scale(0);
         opacity: 0;
     }
+}
+/* Back to home button */
+.back-home-button {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffcc66;
+    padding: 10px 20px;
+    border-radius: 12px;
+    color: #333;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.back-home-button:hover {
+    background: #ffb84d;
+}
+    
+/* Footer stays at the bottom */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+    position: relative;
 }
