@@ -1,6 +1,7 @@
 /* Base styles */
 body {
     font-family: "Comic Sans MS", sans-serif;
+    height: 100%;
     margin: 0;
     padding: 0;
     background: linear-gradient(135deg, #5c9bed, #98d9c8, #98d99d);
