@@ -10,17 +10,63 @@
 <body>
     <div id="quiz-container">
         <h1 class="quiz-title">Find Your Vibe</h1>
-        <div id="quiz-content">
-            <div class="question">
-                <h2>What's your ideal way to spend a weekend?</h2>
-                <button class="answer" data-vibe="tea-cake">Tea & Cake</button>
-                <button class="answer" data-vibe="train-ride">Train Ride</button>
-                <button class="answer" data-vibe="cafe">Café</button>
-                <button class="answer" data-vibe="rot-day">Rot Day</button>
+        
+        <div id="question-container">
+            <!-- Question 1 -->
+            <div class="question" data-question="1">
+                <h2>How do you feel right now?</h2>
+                <button class="answer" data-vibe="restless">Restless—I need a change of scenery.</button>
+                <button class="answer" data-vibe="cozy">Cozy—I want to be comforted and slow down.</button>
+                <button class="answer" data-vibe="motivated">Motivated—I want to be productive in a chill way.</button>
+                <button class="answer" data-vibe="drained">Drained—I need to shut my brain off for a while.</button>
+            </div>
+            
+            <!-- Question 2 -->
+            <div class="question" data-question="2" style="display:none;">
+                <h2>What’s the vibe you’re craving?</h2>
+                <button class="answer" data-vibe="adventure">A little adventure and excitement.</button>
+                <button class="answer" data-vibe="soft-energy">A soft, slow, warm energy.</button>
+                <button class="answer" data-vibe="gentle-motivation">Gentle motivation in a pleasant space.</button>
+                <button class="answer" data-vibe="relaxation">Total, guilt-free relaxation.</button>
+            </div>
+            
+            <!-- Question 3 -->
+            <div class="question" data-question="3" style="display:none;">
+                <h2>What kind of setting feels best to you?</h2>
+                <button class="answer" data-vibe="train-ride">Watching the world go by from a train or car window.</button>
+                <button class="answer" data-vibe="tea-cake">Sipping a warm drink in a quiet space.</button>
+                <button class="answer" data-vibe="cafe">A cozy café with background noise.</button>
+                <button class="answer" data-vibe="rot-day">A couch with snacks and screens.</button>
+            </div>
+            
+            <!-- Question 4 -->
+            <div class="question" data-question="4" style="display:none;">
+                <h2>Pick a small joy that makes life better.</h2>
+                <button class="answer" data-vibe="adventure-joy">Discovering a new place you instantly love.</button>
+                <button class="answer" data-vibe="tea-joy">That first sip of tea or coffee.</button>
+                <button class="answer" data-vibe="productive-joy">Crossing something off your to-do list.</button>
+                <button class="answer" data-vibe="relaxation-joy">Laying on the couch in a hoodie with no obligations.</button>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question" data-question="5" style="display:none;">
+                <h2>What’s your zodiac sign?</h2>
+                <input type="text" class="answer" data-vibe="zodiac" placeholder="Enter your sign here..." />
             </div>
         </div>
+
+        <div id="result-container" style="display:none;">
+            <h2>Your Vibe is...</h2>
+            <p id="result-text"></p>
+        </div>
+
         <a href="index.html" class="back-home">Back to Home</a>
     </div>
+
+    <script src="star-cursor.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>
 
     <script src="star-cursor.js"></script>
     <script src="quiz.js"></script>
