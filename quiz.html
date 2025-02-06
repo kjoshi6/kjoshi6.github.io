@@ -3,27 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz</title>
-    <link rel="stylesheet" href="styles.css">  <!-- Link to your main stylesheet -->
+    <title>Vibe Quiz - Kiki's World</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Global styles -->
+    <link rel="stylesheet" href="quiz.css"> <!-- Quiz-specific styles -->
 </head>
 <body>
-    <div class="quiz-container">
-        <h1>So don’t know what to do with your day? Take my little quiz and find out! MWAH</h1>
-
-        <div id="quiz-container">
-            <div id="question-box">
-                <h2 id="question-title"></h2>
-                <div id="options-container"></div>
-            </div>
-            <div id="navigation-buttons">
-                <button id="back-button" disabled>Back</button>
-                <button id="next-button">Next</button>
+    <div id="quiz-container">
+        <h1 class="quiz-title">Find Your Vibe</h1>
+        <div id="quiz-content">
+            <div class="question">
+                <h2>What's your ideal way to spend a weekend?</h2>
+                <button class="answer" data-vibe="tea-cake">Tea & Cake</button>
+                <button class="answer" data-vibe="train-ride">Train Ride</button>
+                <button class="answer" data-vibe="cafe">Café</button>
+                <button class="answer" data-vibe="rot-day">Rot Day</button>
             </div>
         </div>
+        <a href="index.html" class="back-home">Back to Home</a>
     </div>
 
-    <script src="cursor.js"></script>  <!-- Ensure this JS file exists if needed -->
-    <script src="quiz.js"></script>    <!-- This links to your main quiz logic -->
+    <script src="star-cursor.js"></script>
+    <script src="quiz.js"></script>
 </body>
 </html>
-
