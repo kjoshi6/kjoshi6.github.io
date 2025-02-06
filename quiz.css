@@ -19,7 +19,7 @@ body {
 
 /* Style for questions */
 .question {
-    display: none;
+    display: block;
     padding: 20px;
     background: #fff;
     margin: 20px 0;
