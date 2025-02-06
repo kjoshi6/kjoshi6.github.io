@@ -1,10 +1,22 @@
 /* Base styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom, #f8f3f3, #cce2ff); /* Soft gradient */
-    color: #333;
+    font-family: "Comic Sans MS", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #5c9bed, #98d9c8, #98d99d); blue --> green
+    background-size: 400% 400%;
+    animation: backgroundShift 10s infinite;
+    color: #ffffff;
+    text-align: center;
 }
 
+/* Glowing Heading */
+.glowing-heading {
+    font-size: 3rem;
+    color: #faffeb;
+    text-shadow: 0 0 10px #f3c3d6, 0 0 20px #AE4169, 0 0 30px #AE4169;
+    animation: glow 2s infinite;
+    
 #quiz-container {
     width: 80%;
     margin: 0 auto;
@@ -14,7 +26,7 @@ body {
 
 .quiz-title {
     font-size: 2.5em;
-    color: #ff6f61;
+    color: #7a5753;
 }
 
 /* Style for questions */
@@ -66,7 +78,7 @@ body {
 
 /* Train Ride */
 .train-ride {
-    background: url('train-background.jpg') no-repeat center center fixed;
+    background: url('https://fanboiblog.wordpress.com/wp-content/uploads/2020/05/source.gif') no-repeat center center fixed;
     background-size: cover;
     animation: trainVibration 0.5s infinite;
 }
