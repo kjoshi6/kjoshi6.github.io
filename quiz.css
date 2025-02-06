@@ -20,39 +20,113 @@ body {
     
 #quiz-container {
     width: 80%;
+    height: 80vh; /* Makes the container fill most of the viewport height */
     margin: 0 auto;
-    padding: 20px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    background: rgba(255, 255, 255, 0.9); /* Slight transparency to let the gradient show through */
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-out; /* Fade-in animation */
 }
+
 
 .quiz-title {
     font-size: 2.5em;
     color: #7a5753;
 }
 
-/* Style for questions */
-.question {
-    display: block;
-    padding: 20px;
-    background: #fff;
-    margin: 20px 0;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+#quiz-container {
+    width: 80%;
+    height: 80vh; /* Makes the container fill most of the viewport height */
+    margin: 0 auto;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9); /* Slight transparency to let the gradient show through */
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-out; /* Fade-in animation */
+    position: relative;
 }
 
+/* Glowing effect on the entire container */
+#quiz-container:hover {
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.5), 0 10px 30px rgba(255, 0, 0, 0.2);
+}
+
+/* Style for questions */
+.question {
+    display: none;
+    padding: 30px;
+    margin: 15px 0;
+    background: linear-gradient(to right, #ff6f61, #ffcc66); /* Fun gradient */
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: bounceIn 1s ease-out; /* Bounce-in effect for each question */
+}
+
+.question:hover {
+    transform: scale(1.05); /* Slight scale up on hover for extra emphasis */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Deeper shadow for hover effect */
+}
+
+/* Style for answer buttons */
 .answer {
     background-color: #ffcc66;
     border: none;
-    padding: 15px;
+    padding: 15px 30px;
     margin: 10px;
     cursor: pointer;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
+    border-radius: 12px;
+    font-size: 1.2em;
+    color: #333;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .answer:hover {
-    background-color: #ffb84d;
+    transform: translateY(-5px); /* Lift the button up on hover */
+    box-shadow: 0 0 10px #ff6f61, 0 0 20px #ffcc66, 0 0 30px #ffb84d;
+    background-color: #ffb84d; /* Slight color shift for hover */
 }
+
+.answer:active {
+    transform: translateY(2px); /* Push the button down when clicked */
+}
+
+/* Bounce animation for questions */
+@keyframes bounceIn {
+    0% { transform: translateY(-30px); opacity: 0; }
+    60% { transform: translateY(10px); opacity: 1; }
+    100% { transform: translateY(0); }
+}
+
+/* Sparkles animation */
+@keyframes sparkleAnimation {
+    0% { opacity: 0; }
+    50% { opacity: 0.5; }
+    100% { opacity: 0; }
+}
+
+.sparkle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    animation: sparkleAnimation 2s infinite;
+}
+
 
 /* Result container */
 #result-container {
