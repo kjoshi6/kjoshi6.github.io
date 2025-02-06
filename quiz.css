@@ -1,125 +1,90 @@
 /* Base styles */
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom right, #a8d5ba, #f3c9d1, #d8e8f7); /* Soft pastel gradient */
+    background: linear-gradient(to bottom, #f8f3f3, #cce2ff); /* Soft gradient */
     color: #333;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
 }
 
-/* Quiz container */
 #quiz-container {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
-    position: relative;
 }
 
-/* Glowing title */
 .quiz-title {
-    font-size: 3em;
+    font-size: 2.5em;
     color: #ff6f61;
-    text-shadow: 0 0 10px #ff6f61, 0 0 20px #ff6f61, 0 0 30px #ff6f61;
-    animation: glowing 1.5s infinite alternate;
-    margin-bottom: 20px;
-}
-
-/* Animation for glowing effect */
-@keyframes glowing {
-    0% {
-        text-shadow: 0 0 10px #ff6f61, 0 0 20px #ff6f61, 0 0 30px #ff6f61;
-    }
-    50% {
-        text-shadow: 0 0 20px #ff6f61, 0 0 30px #ff6f61, 0 0 40px #ff6f61;
-    }
-    100% {
-        text-shadow: 0 0 10px #ff6f61, 0 0 20px #ff6f61, 0 0 30px #ff6f61;
-    }
 }
 
 /* Style for questions */
 .question {
     display: none;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.8); /* Light, semi-transparent background */
+    background: #fff;
     margin: 20px 0;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px); /* Soft blur effect */
-    animation: fadeIn 1s ease-in-out;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Answer button styles */
 .answer {
-    background-color: #f4b6c2; /* Soft pink */
+    background-color: #ffcc66;
     border: none;
     padding: 15px;
     margin: 10px;
     cursor: pointer;
-    border-radius: 12px;
+    border-radius: 8px;
     transition: background-color 0.3s ease;
-    font-size: 1.2em;
-    animation: popIn 0.5s ease-out;
 }
 
 .answer:hover {
-    background-color: #ff9fb2; /* Slightly darker pink for hover effect */
-}
-
-/* Animation for answer button */
-@keyframes popIn {
-    0% {
-        transform: scale(0.9);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+    background-color: #ffb84d;
 }
 
 /* Result container */
 #result-container {
     display: none;
-    background: rgba(255, 255, 255, 0.9); /* Light transparent background */
+    background: #fff;
     padding: 20px;
     margin-top: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1s ease-in-out;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #result-text h3 {
-    font-size: 2.5em;
+    font-size: 2em;
     color: #ff6f61;
-    text-shadow: 0 0 10px #ff6f61, 0 0 20px #ff6f61;
 }
 
-/* Vibe-specific styles */
+/* Specific vibe styles */
+
+/* Cake & Tea */
 .cake-tea {
-    background: radial-gradient(circle, #ffe0e6, #f7d8d8); /* Soft pink to light cream */
+    background: radial-gradient(circle, #ffdfba, #f9d2b2);
     animation: steamAnimation 3s infinite;
 }
 
+/* Train Ride */
 .train-ride {
-    background: linear-gradient(to bottom right, #a8e6cf, #dcedc1); /* Soft mint and pastel green */
+    background: url('train-background.jpg') no-repeat center center fixed;
+    background-size: cover;
     animation: trainVibration 0.5s infinite;
 }
 
+/* Coffee Shop */
 .coffee-shop {
-    background: linear-gradient(to bottom right, #d8e8f7, #f3c9d1); /* Soft baby blue and pastel pink */
+    background: url('coffee-shop.jpg') no-repeat center center fixed;
+    background-size: cover;
     animation: candleFlicker 2s infinite;
 }
 
+/* Couch Rot Mode */
 .couch-rot {
-    background: #f4d7d0; /* Light peachy pink */
-    color: #333;
+    background: #333;
+    color: #fff;
     animation: glitchAnimation 2s infinite;
 }
 
-/* Soft background animation */
 @keyframes steamAnimation {
     0% { opacity: 0.8; }
     50% { opacity: 1; transform: translateY(-10px); }
@@ -143,11 +108,6 @@ body {
     100% { transform: translateX(0); }
 }
 
-/* Soft fade-in animation */
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
 
 .sparkle {
     position: absolute;
