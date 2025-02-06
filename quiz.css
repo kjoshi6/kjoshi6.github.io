@@ -1,0 +1,76 @@
+/* Quiz container and title styling */
+#quiz-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.quiz-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+button.answer {
+    background-color: #ff9966;
+    border: none;
+    padding: 15px;
+    font-size: 1.2rem;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.answer:hover {
+    background-color: #ff5e62;
+}
+
+/* Result page layout */
+.result {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.vibe-name {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.vibe-description {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* Specific Animations for Results */
+.tea-cake-animation {
+    animation: steam 5s infinite;
+}
+
+.train-ride-animation {
+    background-image: url('spirited-away-train.jpg');
+    animation: train-move 10s linear infinite;
+}
+
+.cafe-animation {
+    background-color: rgba(50, 50, 50, 0.7);
+    color: #fff;
+}
+
+.rot-day-animation {
+    background-color: #000;
+    color: #0f0;
+}
+
+@keyframes steam {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes train-move {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100%); }
+}
