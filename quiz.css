@@ -1,76 +1,181 @@
-/* Quiz container and title styling */
+/* Base styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom right, #a8d5ba, #f3c9d1, #d8e8f7); /* Soft pastel gradient */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Quiz container */
 #quiz-container {
-    text-align: center;
+    width: 80%;
+    margin: 0 auto;
     padding: 20px;
+    text-align: center;
+    position: relative;
 }
 
+/* Glowing title */
 .quiz-title {
-    font-size: 2rem;
-    margin-bottom: 30px;
-}
-
-.question {
+    font-size: 3em;
+    color: #ff6f61;
+    text-shadow: 0 0 10px #ff6f61, 0 0 20px #ff6f61, 0 0 30px #ff6f61;
+    animation: glowing 1.5s infinite alternate;
     margin-bottom: 20px;
 }
 
-button.answer {
-    background-color: #ff9966;
+/* Animation for glowing effect */
+@keyframes glowing {
+    0% {
+        text-shadow: 0 0 10px #ff6f61, 0 0 20px #ff6f61, 0 0 30px #ff6f61;
+    }
+    50% {
+        text-shadow: 0 0 20px #ff6f61, 0 0 30px #ff6f61, 0 0 40px #ff6f61;
+    }
+    100% {
+        text-shadow: 0 0 10px #ff6f61, 0 0 20px #ff6f61, 0 0 30px #ff6f61;
+    }
+}
+
+/* Style for questions */
+.question {
+    display: none;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8); /* Light, semi-transparent background */
+    margin: 20px 0;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px); /* Soft blur effect */
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Answer button styles */
+.answer {
+    background-color: #f4b6c2; /* Soft pink */
     border: none;
     padding: 15px;
-    font-size: 1.2rem;
     margin: 10px;
-    border-radius: 5px;
     cursor: pointer;
+    border-radius: 12px;
     transition: background-color 0.3s ease;
+    font-size: 1.2em;
+    animation: popIn 0.5s ease-out;
 }
 
-button.answer:hover {
-    background-color: #ff5e62;
+.answer:hover {
+    background-color: #ff9fb2; /* Slightly darker pink for hover effect */
 }
 
-/* Result page layout */
-.result {
-    text-align: center;
+/* Animation for answer button */
+@keyframes popIn {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Result container */
+#result-container {
+    display: none;
+    background: rgba(255, 255, 255, 0.9); /* Light transparent background */
     padding: 20px;
     margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
 }
 
-.vibe-name {
-    font-size: 2rem;
-    font-weight: bold;
+#result-text h3 {
+    font-size: 2.5em;
+    color: #ff6f61;
+    text-shadow: 0 0 10px #ff6f61, 0 0 20px #ff6f61;
 }
 
-.vibe-description {
-    font-size: 1.2rem;
-    margin-top: 10px;
+/* Vibe-specific styles */
+.cake-tea {
+    background: radial-gradient(circle, #ffe0e6, #f7d8d8); /* Soft pink to light cream */
+    animation: steamAnimation 3s infinite;
 }
 
-/* Specific Animations for Results */
-.tea-cake-animation {
-    animation: steam 5s infinite;
+.train-ride {
+    background: linear-gradient(to bottom right, #a8e6cf, #dcedc1); /* Soft mint and pastel green */
+    animation: trainVibration 0.5s infinite;
 }
 
-.train-ride-animation {
-    background-image: url('spirited-away-train.jpg');
-    animation: train-move 10s linear infinite;
+.coffee-shop {
+    background: linear-gradient(to bottom right, #d8e8f7, #f3c9d1); /* Soft baby blue and pastel pink */
+    animation: candleFlicker 2s infinite;
 }
 
-.cafe-animation {
-    background-color: rgba(50, 50, 50, 0.7);
-    color: #fff;
+.couch-rot {
+    background: #f4d7d0; /* Light peachy pink */
+    color: #333;
+    animation: glitchAnimation 2s infinite;
 }
 
-.rot-day-animation {
-    background-color: #000;
-    color: #0f0;
+/* Soft background animation */
+@keyframes steamAnimation {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; transform: translateY(-10px); }
+    100% { opacity: 0.8; transform: translateY(0px); }
 }
 
-@keyframes steam {
+@keyframes trainVibration {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(3px); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes candleFlicker {
+    0%, 100% { opacity: 0.9; }
+    50% { opacity: 1; }
+}
+
+@keyframes glitchAnimation {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+}
+
+/* Soft fade-in animation */
+@keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
 
-@keyframes train-move {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(100%); }
+.sparkle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    clip-path: polygon(
+        50% 0%, 61% 35%, 98% 35%, 
+        68% 57%, 79% 91%, 50% 70%, 
+        21% 91%, 32% 57%, 2% 35%, 
+        39% 35%
+    );
+    pointer-events: none;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+    z-index: 9999;
+    transform: scale(0);
+    animation: sparkle-animation 1s ease-out forwards;
+}
+
+@keyframes sparkle-animation {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
 }
