@@ -1,7 +1,6 @@
-/* Base styles */
+/* General Styles */
 body {
     font-family: "Comic Sans MS", sans-serif;
-    height: 100%;
     margin: 0;
     padding: 0;
     background: linear-gradient(135deg, #5c9bed, #98d9c8, #98d99d);
@@ -9,186 +8,146 @@ body {
     animation: backgroundShift 10s infinite;
     color: #ffffff;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    height: 100vh; /* Use full viewport height */
-    justify-content: space-between; /* Distribute content */
-    position: relative; 
 }
 
 /* Glowing Heading */
-.glowing-heading {
-    font-size: 3rem;
-    color: #faffeb;
-    text-shadow: 0 0 10px #f3c3d6, 0 0 20px #AE4169, 0 0 30px #AE4169;
-    animation: glow 2s infinite;
-
-}
 .quiz-title {
-    font-size: 2.5em;
-    color: #7a5753;
+    font-size: 3rem;
+    color: #f3c3d6;
+    text-shadow: 0 0 10px #f3c3d6, 0 0 20px #98d9c8, 0 0 30px #98d9c8;
+    animation: glow 2s infinite;
+    margin-bottom: 30px;
 }
 
-#quiz-container {
-    flex-grow: 1; /* Allows quiz container to take up available space */
-    width: 80%;
-    height: 80vh;
-    margin: 0 auto;
-    padding: 40px;
+/* Question Container */
+#question-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 15px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 1s ease-out;
-    position: relative;
-
-    /* Glowing effect on the entire container */
-#quiz-container:hover {
-    box-shadow: 0 0 20px rgba(255, 165, 0, 0.5), 0 10px 30px rgba(255, 0, 0, 0.2);
+    align-items: center;
+    margin-top: 50px;
 }
 
-
-/* Style for questions */
-.question {
-    display: none;
-    padding: 30px;
-    margin: 15px 0;
-    background: linear-gradient(to right, #ff6f61, #ffcc66); /* Fun gradient */
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: bounceIn 1s ease-out; /* Bounce-in effect for each question */
+/* Question Text */
+.question h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #f3c3d6;
 }
 
-.question:hover {
-    transform: scale(1.05); /* Slight scale up on hover for extra emphasis */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Deeper shadow for hover effect */
-}
-
-/* Style for answer buttons */
+/* Question Buttons */
 .answer {
-    background-color: #ffcc66;
-    border: none;
     padding: 15px 30px;
     margin: 10px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #98d9c8, #5c9bed);
+    box-shadow: 0 0 15px #98d9c8, 0 0 30px #5c9bed;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    border-radius: 12px;
-    font-size: 1.2em;
-    color: #333;
-    text-transform: uppercase;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .answer:hover {
-    transform: translateY(-5px); /* Lift the button up on hover */
-    box-shadow: 0 0 10px #ff6f61, 0 0 20px #ffcc66, 0 0 30px #ffb84d;
-    background-color: #ffb84d; /* Slight color shift for hover */
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #ffffff, 0 0 40px #98d9c8;
 }
 
-.answer:active {
-    transform: translateY(2px); /* Push the button down when clicked */
+/* Background Animation */
+@keyframes backgroundShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
- @keyframes backgroundShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+/* Heading Glow Animation */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px #f3c3d6, 0 0 20px #98d9c8, 0 0 30px #98d9c8;
+    }
+    50% {
+        text-shadow: 0 0 20px #f0ebf1, 0 0 30px #3f1e65, 0 0 40px #AE4169;
+    }
+    100% {
+        text-shadow: 0 0 10px #f3c3d6, 0 0 20px #98d9c8, 0 0 30px #98d9c8;
+    }
 }
 
-/* Bounce animation for questions */
-@keyframes bounceIn {
-    0% { transform: translateY(-30px); opacity: 0; }
-    60% { transform: translateY(10px); opacity: 1; }
-    100% { transform: translateY(0); }
-}
-
-
-/* Result container */
+/* Result Section */
 #result-container {
-    display: none;
-    background: #fff;
+    margin-top: 40px;
     padding: 20px;
-    margin-top: 20px;
+    background: linear-gradient(135deg, #5c9bed, #98d9c8);
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px #5c9bed, 0 0 30px #98d9c8;
+    display: none;
 }
 
-#result-text h3 {
-    font-size: 2em;
-    color: #ff6f61;
+#result-text {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-top: 20px;
 }
 
-/* Specific vibe styles */
-
-/* Cake & Tea */
-.cake-tea {
-    background: radial-gradient(circle, #ffdfba, #f9d2b2);
-    animation: steamAnimation 3s infinite;
+/* Back to Home Link */
+.back-home {
+    margin-top: 30px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #5c9bed;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
-/* Train Ride */
-.train-ride {
-    background: url('https://fanboiblog.wordpress.com/wp-content/uploads/2020/05/source.gif') no-repeat center center fixed;
-    background-size: cover;
-    animation: trainVibration 0.5s infinite;
+.back-home:hover {
+    background-color: #98d9c8;
+    box-shadow: 0 0 10px #98d9c8, 0 0 20px #5c9bed;
 }
 
-/* Coffee Shop */
-.coffee-shop {
-    background: url('coffee-shop.jpg') no-repeat center center fixed;
-    background-size: cover;
-    animation: candleFlicker 2s infinite;
+/* Footer */
+footer {
+    margin-top: 50px;
+    font-size: 1rem;
+    color: #f0ebf1;
 }
 
-/* Couch Rot Mode */
-.couch-rot {
-    background: #333;
-    color: #fff;
-    animation: glitchAnimation 2s infinite;
+/* Optional: Dropdown Styling */
+#zodiac-sign {
+    font-family: "Comic Sans MS", sans-serif;
+    font-size: 16px;
+    color: #3f1e65;
+    background-color: #f3c3d6;
+    border: 2px solid #AE4169;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 0 0 5px #AE4169;
+    cursor: pointer;
 }
 
-@keyframes steamAnimation {
-    0% { opacity: 0.8; }
-    50% { opacity: 1; transform: translateY(-10px); }
-    100% { opacity: 0.8; transform: translateY(0px); }
-}
-
-@keyframes trainVibration {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(3px); }
-    100% { transform: translateX(0); }
-}
-
-@keyframes candleFlicker {
-    0%, 100% { opacity: 0.9; }
-    50% { opacity: 1; }
-}
-
-@keyframes glitchAnimation {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(10px); }
-    100% { transform: translateX(0); }
-}
-
-
+/* Sparkle Cursor Effect */
 .sparkle {
     position: absolute;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.8); /* Soft, glowing white */
     clip-path: polygon(
         50% 0%, 61% 35%, 98% 35%, 
         68% 57%, 79% 91%, 50% 70%, 
         21% 91%, 32% 57%, 2% 35%, 
         39% 35%
-    );
+    ); /* Star shape */
     pointer-events: none;
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
-    z-index: 9999;
-    transform: scale(0);
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8)); /* Glow effect */
+    z-index: 9999; /* Keep it on top */
+    transform: scale(0); /* Start with small scale */
     animation: sparkle-animation 1s ease-out forwards;
 }
 
@@ -198,7 +157,7 @@ body {
         opacity: 1;
     }
     50% {
-        transform: scale(1.5);
+        transform: scale(1.5); /* Slightly enlarge the sparkle */
         opacity: 0.7;
     }
     100% {
@@ -206,31 +165,4 @@ body {
         opacity: 0;
     }
 }
-/* Back to home button */
-.back-home-button {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #ffcc66;
-    padding: 10px 20px;
-    border-radius: 12px;
-    color: #333;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
 
-.back-home-button:hover {
-    background: #ffb84d;
-}
-    
-/* Footer stays at the bottom */
-footer {
-    width: 100%;
-    text-align: center;
-    padding: 20px;
-    background: #333;
-    color: #fff;
-    position: fixed;
-}
