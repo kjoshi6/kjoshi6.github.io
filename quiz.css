@@ -13,6 +13,7 @@ body {
     flex-direction: column;
     height: 100vh; /* Use full viewport height */
     justify-content: space-between; /* Distribute content */
+    position: relative; 
 }
 
 /* Glowing Heading */
@@ -22,7 +23,7 @@ body {
     text-shadow: 0 0 10px #f3c3d6, 0 0 20px #AE4169, 0 0 30px #AE4169;
     animation: glow 2s infinite;
 
-
+}
 .quiz-title {
     font-size: 2.5em;
     color: #7a5753;
@@ -231,5 +232,5 @@ footer {
     padding: 20px;
     background: #333;
     color: #fff;
-    position: relative;
+    position: fixed;
 }
