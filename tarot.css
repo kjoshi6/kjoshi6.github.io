@@ -108,21 +108,20 @@ footer {
 }
 
 #back-home {
-    margin-bottom: 40px;
-    font-size: 1.2rem;
+   margin-top: 30px;
+    display: inline-block;
     padding: 10px 20px;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    border-radius: 5px;
-    text-align: center;
-    cursor: pointer;
-    border: 1px solid #fff;
-    box-shadow: 0 0 10px #ff00ff;
+    background-color: #5c9bed;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
 #back-home:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 0 20px #ff00ff;
+    background-color: #98d9c8;
+    box-shadow: 0 0 10px #98d9c8, 0 0 20px #5c9bed;
 }
 
 .sparkle {
