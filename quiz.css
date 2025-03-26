@@ -84,7 +84,7 @@ body {
 #result-container {
     margin-top: 40px;
     padding: 20px;
-    background: linear-gradient(135deg, #5c9bed, #98d9c8);
+    background: linear-gradient(135deg, #3f1e65, #AE4169);
     border-radius: 10px;
     box-shadow: 0 0 15px #5c9bed, 0 0 30px #98d9c8;
     display: none;
