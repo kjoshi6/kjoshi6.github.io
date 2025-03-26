@@ -14,7 +14,7 @@ body {
 .quiz-title {
     font-size: 3rem;
     color: #f3c3d6;
-    text-shadow: 0 0 10px #f3c3d6, 0 0 20px #98d9c8, 0 0 30px #98d9c8;
+    text-shadow: 0 0 10px #f3c3d6, 0 0 20px #23613e, 0 0 30px #60b384;
     animation: glow 2s infinite;
     margin-bottom: 30px;
 }
@@ -40,8 +40,8 @@ body {
     padding: 15px 30px;
     margin: 10px;
     border-radius: 15px;
-    background: linear-gradient(135deg, #98d9c8, #5c9bed);
-    box-shadow: 0 0 15px #98d9c8, 0 0 30px #5c9bed;
+    background: linear-gradient(135deg, #f3c3d6, #f0ebf1);
+    box-shadow: 0 0 15px #f3c3d6, 0 0 30px #f0ebf1;
     text-decoration: none;
     color: #ffffff;
     font-weight: bold;
