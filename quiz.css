@@ -51,7 +51,7 @@ body {
 
 .answer:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 20px #ffffff, 0 0 40px #98d9c8;
+    box-shadow: 0 0 20px #ffffff, 0 0 40px #67A87F;
 }
 
 /* Background Animation */
