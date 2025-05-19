@@ -1,20 +1,20 @@
 // Store vibe descriptions in an object for easy updates
 const vibeDescriptions = {
     teaAndCake: {
-        title: "Cake & Tea 🍰☕",
-        description: `A vanilla cake with fruit and a mint tea—soft, delicate, and comforting. Coffee and cookies? Too intense. You’re in a cozy winter vibe, craving warmth and ease. Tea feels like a ritual, a moment to savor life’s simple joys. The British might be onto something with their little tea parties.\n\n🧘 Your vibe for the day: Slow down. Let yourself be comforted. Find the nearest bakery, buy three pastries, and eat them very slowly—maybe even share (or don’t).`
+        title: "Cake & Tea ☕",
+        description: `Sometimes you do not want a coffee and a cookie, it’s too intense. You want something soft and easy. it kind of feels like a delicacy. Coffee and tea is so lovely, I understand why the British are have little tea parties. the warm tea is also very comforting. when you have cake and tea, you are looking to enjoy the simple moments of life. to slow down, and to savor. so this is the vibe of the day. you need to slow down and have a tea and soothe your woes. Find your nearest bakery and go buy 3 pastries and eat them all very slowly. Maybe share them with your roommate/s. `
     },
     trainRide: {
-        title: "Long Train Ride 🚂🌿",
-        description: `You’ve got time to kill and don’t mind the commute. You’re in the mood for an extended moment of reflection, watching the world go by as you listen to your favorite playlist. You need at least 1-2 hours on the train—just enough time to lose yourself in thought but not get restless.\n\n🌍 Your vibe for the day: Seek out adventure and problem-solving. Find a botanical garden, an old bookstore, or a small-town café. Going somewhere new stimulates your brain, feeds your curiosity, and keeps your energy fresh.`
+        title: "Long Train Ride",
+        description: `You have a lot of time to kill and don’t mind the commute. You want to go somewhere pretty or new, and get away from the city. Find a garden that is between an 1 -2 hour commute. Anything less won’t give you enough time to ponder. Any more time, you will get restless/hungry/sleeepy/tired. You don’t want to kill your vibe, you want to find a good vibe and keep it going. My personal favorite is the snug harbor garden on staten island. It’s best in the summer/spring/fall. Honestly it can also be a difficult place to navigate. Today you are looking for adventure and problem solving. Going to new places stimulates a dopamine boost, keeps your brain sharp, reduces your natural fear of uncertainty. It’s both energizing and satisfying.`
     },
     coffeeShop: {
-        title: "Coffee Shop ☕📖",
-        description: `Coffee shops have a mission-based energy. You don’t just wander into one; you come with a purpose—to work, journal, people-watch, text back that friend you’ve been ignoring, or just vibe with a book. There’s something about the atmosphere—a mix of background chatter, indie music, and the smell of roasted beans—that makes productivity feel more enjoyable.\n\n💻 Your vibe for the day: Get things done, but in a low-pressure, cozy way. Make a to-do list, read a few chapters, or just exist in the company of strangers while sipping something warm.`
+        title: "Coffee Shop Time",
+        description: `People go to a coffee shops for many reasons. But going to a coffee shop usually means business. You are going there because you want to get something, whether it’s making to do lists, processing your emotions while journaling, reading a book, texting all your friends back, making a new spotify playlist, working, etc. List goes on. The thing is about a coffee shop, you go there for the motivation to get something done. But you wanna get it done with people around you. Every time i go to a coffee shop, I am either there with a book, laptop, planner, journal, or all of the above. Coffee shop in America (at least) is to get a few things done in the company of other people while someone else makes you a lovely beverage. If I am sitting my ass down at a coffee shop, I am getting something done. `
     },
     couchRot: {
-        title: "Couch Rot Mode 🍿📱💻",
-        description: `Some days, you just need to shut your brain off and rot. You deserve a day of mindless indulgence—5 fun snacks, a couch, and at least three screens going at once. Maybe you’ll start a new show. Maybe you’ll doom-scroll while half-watching a comfort movie. Maybe you’ll let YouTube autoplay whatever weird niche videos the algorithm feeds you. Does it matter? No.\n\n🛋️ Your vibe for the day: Total guilt-free relaxation. You’re not being lazy—you’re recharging. Let yourself exist without expectations.`
+        title: "Couch Rot Mode",
+        description: `Okay somedays you need to actually shut your brain off and simply rot. It is time to go to the store, get like 5 fun food/drinks and sit your ass on the couch. Turn on the tv and your ipad and phone and your laptop all at once. Different activity on each one and alternate between them. or you could turn on a show to get really invested in for the next 3 hours/days/weeks/months.`
     }
 };
 
