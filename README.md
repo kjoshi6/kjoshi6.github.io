@@ -1,1 +1,1 @@
-#my-vibe-website
+Astrology/Tarot/BirthChart/VibeQuiz
