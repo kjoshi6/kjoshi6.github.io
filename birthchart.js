@@ -1,4 +1,4 @@
-import * as swe from 'https://unpkg.com/sweph@0.1.3/dist/sweph.mjs';
+import * as swe from './sweph.mjs';
 
 const GEOCODE_API_KEY = '819e2a93512f4a75b0921490b0e080c8';
 
