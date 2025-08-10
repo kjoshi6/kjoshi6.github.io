@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Birth Chart Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/ephemeris-js@1.0.5/dist/ephemeris.min.js"></script>
+</head>
+<body>
+  <main class="main">
+    <h1 class="title">Birth Chart Calculator</h1>
+    
+    <form id="birth-form" class="form">
+      <div class="form-group">
+        <label for="birth-date">Birth Date:</label>
+        <input type="date" id="birth-date" required>
+      </div>
+      <div class="form-group">
+        <label for="birth-time">Birth Time:</label>
+        <input type="time" id="birth-time" required>
+      </div>
+      <button type="submit" class="btn">Calculate</button>
+    </form>
+
+    <div class="results">
+      <h2 class="subtitle">Results:</h2>
+      <pre id="output" class="output-box"></pre>
+    </div>
+  </main>
+
+  <!-- ✅ Inline JS instead of using birthchart.js -->
+  <script>
+    document.getElementById('birth-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const date = document.getElementById('birth-date').value;
+      const time = document.getElementById('birth-time').value;
+      const datetime = new Date(`${date}T${time}:00Z`);
+      const jd = Ephemeris.toJulianDate(datetime);
+
+      const planets = ['sun', 'moon'];
+      const signs = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo',
+                    'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'];
+
+      let output = `Julian Day: ${jd.toFixed(5)}\n\n`;
+
+      planets.forEach(planet => {
+        const pos = Ephemeris.getPlanetPosition(planet, jd);
+        const deg = pos.longitude % 360;
+        const sign = signs[Math.floor(deg / 30)];
+        output += `${planet.charAt(0).toUpperCase() + planet.slice(1)}: ${sign} (${deg.toFixed(2)}°)\n`;
+      });
+
+      // Approximate rising sign from Julian date (not accurate, but passable for browser use)
+      const lst = (jd * 1.002737909) % 360;
+      const risingSign = signs[Math.floor(lst / 30)];
+      output += `\nRising Sign (approx): ${risingSign} (${lst.toFixed(2)}°)\n`;
+
+      document.getElementById('output').textContent = output;
+    });
+  </script>
+</body>
+</html>
