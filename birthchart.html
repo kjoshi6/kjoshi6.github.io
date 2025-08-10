@@ -1,23 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Birth Chart Calculator</title>
+  <script src="https://unpkg.com/ephemeris-js/dist/ephemeris.min.js"></script>
 </head>
 <body>
-  <h1>Birth Chart</h1>
-
-  <form id="birth-form">
-    <label>Date: <input type="date" id="birth-date" required></label><br>
-    <label>Time: <input type="time" id="birth-time" required></label><br>
-    <!-- Instead of lat/lon inputs -->
-<label>Birth City: <input type="text" id="birth-city" required></label><br>
-    <button type="submit">Get Chart</button>
+  <h1>Birth Chart Calculator</h1>
+  <form id="birthForm">
+    <label>
+      Birth Date:
+      <input type="date" id="birthDate" required>
+    </label>
+    <br>
+    <label>
+      Birth Time:
+      <input type="time" id="birthTime" required>
+    </label>
+    <br>
+    <button type="submit">Calculate</button>
   </form>
 
-  <pre id="output"></pre>
+  <h2>Results:</h2>
+  <div id="results"></div>
 
-  <!-- Load Swiss Ephemeris JS -->
-  <script src="birthchart.js" type="module"></script>
+  <script>
+    const form = document.getElementById('birthForm');
+    const results = document.getElementById('results');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const date = document.getElementById('birthDate').value;
+      const time = document.getElementById('birthTime').value;
+      const datetime = new Date(`${date}T${time}:00Z`);
+      const jd = Ephemeris.toJulianDate(datetime);
+
+      const planets = ["sun", "moon", "mercury", "venus", "mars", "jupiter", "saturn", "uranus", "neptune", "pluto"];
+      let output = "<ul>";
+      planets.forEach(planet => {
+        const pos = Ephemeris.getPlanetPosition(planet, jd);
+        output += `<li><strong>${planet.toUpperCase()}</strong>: ${pos.longitude.toFixed(2)}°</li>`;
+      });
+      output += "</ul>";
+      results.innerHTML = output;
+    });
+  </script>
 </body>
 </html>
