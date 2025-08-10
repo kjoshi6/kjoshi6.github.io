@@ -7,43 +7,24 @@
 </head>
 <body>
   <h1>Birth Chart Calculator</h1>
-  <form id="birthForm">
+  <form id="birth-form">
     <label>
       Birth Date:
-      <input type="date" id="birthDate" required>
+      <input type="date" id="birth-date" required>
     </label>
     <br>
     <label>
       Birth Time:
-      <input type="time" id="birthTime" required>
+      <input type="time" id="birth-time" required>
     </label>
     <br>
     <button type="submit">Calculate</button>
   </form>
 
   <h2>Results:</h2>
-  <div id="results"></div>
+  <pre id="output"></pre>
 
-  <script>
-    const form = document.getElementById('birthForm');
-    const results = document.getElementById('results');
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const date = document.getElementById('birthDate').value;
-      const time = document.getElementById('birthTime').value;
-      const datetime = new Date(`${date}T${time}:00Z`);
-      const jd = Ephemeris.toJulianDate(datetime);
-
-      const planets = ["sun", "moon", "mercury", "venus", "mars", "jupiter", "saturn", "uranus", "neptune", "pluto"];
-      let output = "<ul>";
-      planets.forEach(planet => {
-        const pos = Ephemeris.getPlanetPosition(planet, jd);
-        output += `<li><strong>${planet.toUpperCase()}</strong>: ${pos.longitude.toFixed(2)}°</li>`;
-      });
-      output += "</ul>";
-      results.innerHTML = output;
-    });
-  </script>
+  <!-- ✅ Load your JS file here -->
+  <script type="module" src="birthchart.js"></script>
 </body>
 </html>
