@@ -3,28 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>Birth Chart Calculator</title>
-  <script src="https://unpkg.com/ephemeris-js/dist/ephemeris.min.js"></script>
+  <script src="https://unpkg.com/ephemeris-js@1.0.5/dist/ephemeris.min.js"></script>
 </head>
 <body>
   <h1>Birth Chart Calculator</h1>
   <form id="birth-form">
-    <label>
-      Birth Date:
+    <label>Birth Date:
       <input type="date" id="birth-date" required>
-    </label>
-    <br>
-    <label>
-      Birth Time:
+    </label><br>
+    <label>Birth Time:
       <input type="time" id="birth-time" required>
-    </label>
-    <br>
+    </label><br>
     <button type="submit">Calculate</button>
   </form>
 
   <h2>Results:</h2>
   <pre id="output"></pre>
 
-  <!-- ✅ Load your JS file here -->
   <script type="module" src="birthchart.js"></script>
 </body>
 </html>
+
