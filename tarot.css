@@ -97,15 +97,6 @@ header {
     }
 }
 
-footer {
-    position: fixed;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
-    font-size: 0.8rem;
-    color: white;
-}
-
 #back-home {
    margin-top: 30px;
     display: inline-block;
@@ -121,6 +112,15 @@ footer {
 #back-home:hover {
     background-color: #98d9c8;
     box-shadow: 0 0 10px #98d9c8, 0 0 20px #5c9bed;
+}
+
+footer {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    color: white;
 }
 
 .sparkle {
