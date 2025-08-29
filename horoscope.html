@@ -1,28 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horoscope Generator</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    #horoscope-result {
-      opacity: 0;
-      transition: opacity 1.5s ease-in-out;
-      font-size: 1.2em;
-      padding: 20px;
-      border-radius: 15px;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(6px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    /* Magic Globe Container */
+    .globe {
+      width: 350px;
+      height: 350px;
+      margin: 40px auto;
+      background: radial-gradient(circle at top, #ffffffcc, #d0d0ff 70%, #aaaaff 100%);
+      border-radius: 50%;
+      border: 5px solid #fff;
+      box-shadow: 0 0 20px #a6a6ff, inset 0 0 40px #ffffffaa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      margin-top: 20px;
+      padding: 20px;
+      font-size: 18px;
+      color: #2e2e4f;
+      font-family: "Papyrus", "Cursive", serif;
     }
 
-    #horoscope-result.fade-in {
-      opacity: 1;
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
-</head>
+<body>
 <body>
     <header>
         <h1 class="glow-heading">Daily Horoscope</h1>
@@ -56,7 +71,11 @@
             <option value="pisces">Pisces</option> Girl what are you even saying 
         </select>
         <button id="get-horoscope">Get Horoscope</button>
-        <div id="horoscope-result"></div>
+        <!-- Magic Globe -->
+  <div class="globe">
+    <div id="horoscope-result">Your message will appear here ✨</div>
+  </div>
+
     </div>
 
     <script src="custom-horoscope.js"></script>
