@@ -97,20 +97,12 @@ header {
     }
 }
 
-footer {
-    position: fixed;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
-    font-size: 0.8rem;
-    color: white;
-}
-
-#back-home {
-   margin-top: 30px;
+/* Back to Home Link */
+.back-home {
+    margin-top: 30px;
     display: inline-block;
     padding: 10px 20px;
-    background-color: #5c9bed;
+    background-color: #AE4169;
     color: white;
     border-radius: 10px;
     text-decoration: none;
@@ -118,9 +110,17 @@ footer {
     transition: all 0.3s ease;
 }
 
-#back-home:hover {
-    background-color: #98d9c8;
-    box-shadow: 0 0 10px #98d9c8, 0 0 20px #5c9bed;
+.back-home:hover {
+    background-color: #692257;
+    box-shadow: 0 0 10px #F3C3D6, 0 0 20px #3f1e65;
+}
+footer {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    color: white;
 }
 
 .sparkle {

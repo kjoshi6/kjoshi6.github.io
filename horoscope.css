@@ -1,0 +1,149 @@
+/* Reset & global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Papyrus", "Cursive", serif;
+}
+
+body {
+  background: #fffdf5; /* soft cream */
+  color: #2e2e4f; /* deep slate text */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+header {
+  padding: 20px;
+  text-align: center;
+}
+
+.glow-heading {
+  font-size: 3rem;
+  color: #2e2e4f;
+  text-shadow: 0 0 8px #fff, 0 0 15px #fff9;
+}
+
+/* Menu container at bottom */
+.menu-container {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+.menu-item .home-button {
+  text-decoration: none;
+  padding: 12px 25px;
+  background: #fff;
+  color: #2e2e4f;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.menu-item .home-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Horoscope container / text bubble */
+.horoscope-container {
+  margin-top: 40px;
+  width: 90%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+select#zodiac-sign {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  font-size: 16px;
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 300px;
+  background: #fffef9;
+  cursor: pointer;
+}
+
+button#get-horoscope {
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: none;
+  background: #fffef9;
+  color: #2e2e4f;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+button#get-horoscope:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 15px rgba(0,0,0,0.15);
+}
+
+/* Magical smoky bubble for horoscope */
+#horoscope-result {
+  margin-top: 25px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  border-radius: 30px;
+  box-shadow: 0 0 60px rgba(200,200,200,0.3), inset 0 0 20px rgba(255,255,255,0.6);
+  font-size: 18px;
+  text-align: center;
+  max-width: 100%;
+  position: relative;
+  line-height: 1.5em;
+}
+
+/* Fade in effect */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Optional smoke effect (animated pseudo-elements) */
+#horoscope-result::before,
+#horoscope-result::after {
+  content: '';
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  top: -10%;
+  left: -10%;
+  background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
+  border-radius: 50%;
+  animation: smoke 4s infinite alternate;
+  z-index: -1;
+}
+
+#horoscope-result::after {
+  animation-delay: 2s;
+}
+
+@keyframes smoke {
+  0% { transform: translate(0,0) scale(1); opacity: 0.4; }
+  50% { transform: translate(10px,-10px) scale(1.05); opacity: 0.2; }
+  100% { transform: translate(-10px,-5px) scale(1.1); opacity: 0.4; }
+}
