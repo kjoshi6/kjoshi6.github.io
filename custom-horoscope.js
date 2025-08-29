@@ -2,7 +2,7 @@
 const horoscopes = {
     aries: "Don't mumble your grievences to yourself - time to stand Up", "wee wee wah wah no one cares...get over it" 
     taurus: "It's okay to express your emotions, no one is going to get mad at you babe", "how does is it feel to be so funny, pretty, cool, and grounded all the time????" 
-    gemini: "Sit your ASS at HOME - nobody wants to play the mind games you started in your own head", "shut up stop talking about the same 2 things on repeat. please..." , "Everyone in your life is blessed to have such an easy going, witty, loyal, smartie pants on their side" , "the demons in your head are right... you are INSANE" 
+    gemini: "Sit your ASS at HOME - nobody wants to play the mind games you started in your own head", "shut up stop talking about the same 2 things on repeat. please..." , "Everyone in your life is blessed to have such an easy going, witty, loyal, smartie pants on their side" , "You are demon wrapped up in clown suit" 
     cancer: "No need to manipulate everyone with your tears honey", 
     leo: "You don't need to be asking the tough questions everyday.. the People are tired", "The world does actually revolve actually does revolve around you...somehow.."
     virgo: "The recieptionist at the dentist didn't smile at you because she hates her job not because she hates you", 
