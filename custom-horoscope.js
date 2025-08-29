@@ -31,6 +31,7 @@ const horoscopes = {
     scorpio: [
         "I can feel your intensity through the screen right now",
         "Tell someone a secret today"
+        "
     ],
     sagittarius: [
         "You do not need to be terrorizing every room you walk into"
@@ -48,22 +49,13 @@ const horoscopes = {
     ]
 };
 
-// Function to Display Horoscope
-function displayHoroscope() {
-    const signDropdown = document.getElementById("zodiac-sign");
-    const selectedSign = signDropdown.value;
-    const resultDiv = document.getElementById("horoscope-result");
+  const horoscopeList = horoscopes[sign];
+  const random = horoscopeList[Math.floor(Math.random() * horoscopeList.length)];
 
-    if (selectedSign) {
-        const options = horoscopes[selectedSign];
-        const randomIndex = Math.floor(Math.random() * options.length);
-        const randomHoroscope = options[randomIndex];
+  const result = document.getElementById("horoscope-result");
+  result.textContent = random;
 
-        resultDiv.innerHTML = `<p>Your horoscope: ${randomHoroscope}</p>`;
-    } else {
-        resultDiv.innerHTML = `<p>Please select a zodiac sign!</p>`;
-    }
-}
-
-// Event Listener for Button
-document.getElementById("get-horoscope").addEventListener("click", displayHoroscope);
+  // Reset + replay fade-in animation
+  result.classList.remove("fade-in");
+  void result.offsetWidth; // trigger reflow
+  result.classList.add("fade-in
