@@ -4,82 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Horoscope Generator</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    /* Magic Globe Container */
-    .globe {
-      width: 350px;
-      height: 350px;
-      margin: 40px auto;
-      background: radial-gradient(circle at top, #ffffffcc, #d0d0ff 70%, #aaaaff 100%);
-      border-radius: 50%;
-      border: 5px solid #fff;
-      box-shadow: 0 0 20px #a6a6ff, inset 0 0 40px #ffffffaa;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-      font-size: 18px;
-      color: #2e2e4f;
-      font-family: "Papyrus", "Cursive", serif;
-    }
-
-    /* Fade-in animation */
-    .fade-in {
-      opacity: 0;
-      animation: fadeIn 2s forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css"> <!-- main site styles -->
+  <link rel="stylesheet" href="horoscope.css"> <!-- page-specific styles -->
 </head>
 <body>
-<body>
-    <header>
-        <h1 class="glow-heading">Daily Horoscope</h1>
-    </header>
+  <header>
+      <h1 class="glow-heading">Daily Horoscope</h1>
+  </header>
 
-    <!-- Menu Container -->
-    <div class="menu-container">
-        <!-- Back to Home Button -->
-        <div class="menu-item">
-            <a href="index.html" class="home-button">Back to Home</a>
-        </div>
-    </div>
-
+  <main class="horoscope-main">
     <!-- Horoscope Content -->
     <div class="horoscope-container">
-     <nav class="menu">
-        <p>Select your zodiac sign below to get today's horoscope:</p>
-        <select id="zodiac-sign">
-            <option value="" selected disabled>Select your sign</option> 
-            <option value="aries">Aries</option> do not be getting angry and throwing a tantrum to yourself.. plz stand up for yourself 
-            <option value="taurus">Taurus</option> Have one emotion, please...
-            <option value="gemini">Gemini</option> Sit your ASS at HOME - nobody wants to play the mind games you started in your own head 
-            <option value="cancer">Cancer</option> Stop manipulating everyone with your tears
-            <option value="leo">Leo</option> You don't need to be asking the tough questions everyday.. plz the people are tired. 
-            <option value="virgo">Virgo</option> Stop taking everything personally 
-            <option value="libra">Libra</option> When are you getting a personality that isn't people pleasing 
-            <option value="scorpio">Scorpio</option> No need to be eyeing everyone like a little slut 
-            <option value="sagittarius">Sagittarius</option> You are delusional and so 
-            <option value="capricorn">Capricorn</option> Enough money talk spend some time with your loved ones please 
-            <option value="aquarius">Aquarius</option> Hello where even are you and what are you doing 
-            <option value="pisces">Pisces</option> Girl what are you even saying 
-        </select>
-        <button id="get-horoscope">Get Horoscope</button>
-        <!-- Magic Globe -->
-  <div class="globe">
-    <div id="horoscope-result">Your message will appear here ✨</div>
+      <p>Select your zodiac sign below to get today's horoscope:</p>
+      <select id="zodiac-sign">
+          <option value="" selected disabled>Select your sign</option>
+          <option value="aries">Aries</option>
+          <option value="taurus">Taurus</option>
+          <option value="gemini">Gemini</option>
+          <option value="cancer">Cancer</option>
+          <option value="leo">Leo</option>
+          <option value="virgo">Virgo</option>
+          <option value="libra">Libra</option>
+          <option value="scorpio">Scorpio</option>
+          <option value="sagittarius">Sagittarius</option>
+          <option value="capricorn">Capricorn</option>
+          <option value="aquarius">Aquarius</option>
+          <option value="pisces">Pisces</option>
+      </select>
+      <button id="get-horoscope">Get Horoscope</button>
+
+      <div id="horoscope-result">Your horoscope will appear here ✨</div>
+    </div>
+  </main>
+
+  <!-- Menu container at bottom -->
+  <div class="menu-container">
+      <div class="menu-item">
+          <a href="index.html" class="home-button">Back to Home</a>
+      </div>
   </div>
 
-    </div>
-
-    <script src="custom-horoscope.js"></script>
-    <!-- Glittery Cursor -->
-    <script src="cursor.js"></script>
+  <script src="custom-horoscope.js"></script>
+  <script src="cursor.js"></script>
 </body>
+</html>
+
 </html>
