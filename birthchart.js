@@ -1,6 +1,9 @@
 document.getElementById('birth-form').addEventListener('submit', (e) => {
   e.preventDefault();
+  
+swe.set_ephe_path('/ephe/');
 
+  
   const date = document.getElementById('birth-date').value;
   const time = document.getElementById('birth-time').value;
   const datetime = new Date(`${date}T${time}:00Z`);

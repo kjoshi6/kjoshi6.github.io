@@ -114,13 +114,11 @@ header {
     background-color: #692257;
     box-shadow: 0 0 10px #F3C3D6, 0 0 20px #3f1e65;
 }
+/* Footer */
 footer {
-    position: fixed;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
-    font-size: 0.8rem;
-    color: white;
+    margin-top: 50px;
+    font-size: 1rem;
+    color: #f0ebf1;
 }
 
 .sparkle {
