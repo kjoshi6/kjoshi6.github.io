@@ -1,7 +1,7 @@
 document.getElementById('birth-form').addEventListener('submit', (e) => {
   e.preventDefault();
   
-swe.set_ephe_path('/ephe/');
+swe.set_ephe_path("/ephe");
 
   
   const date = document.getElementById('birth-date').value;
