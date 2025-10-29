@@ -3,7 +3,7 @@ let swe;
 
 function initSweph() {
   swe = new sweph();
-  swe.set_ephe_path("/ephe");
+  swe.set_ephe_path("/:ephe:/");
   console.log('Swiss Ephemeris initialized');
 }
 
