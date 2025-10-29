@@ -2,118 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Birth Chart Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birth Chart Calculator - Kiki's World</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/sweph@0.3.1/dist/sweph.min.js"></script>
-<script src="birthchart.js"></script>
 </head>
 <body>
-  <main class="main">
-    <h1 class="title">Birth Chart Calculator</h1>
-    <form id="birth-form" class="form">
+  <h1 class="glowing-heading">Birth Chart Calculator</h1>
+  
+  <div style="max-width: 500px; margin: 30px auto; padding: 20px;">
+    <form id="birth-form">
       <div class="form-group">
-        <label for="birth-date">Birth Date:</label>
-        <input type="date" id="birth-date" required>
+        <label for="birth-date" style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Birth Date:</label>
+        <input type="date" id="birth-date" required style="width: 100%; padding: 10px; border-radius: 10px; border: 2px solid #AE4169; font-family: 'Comic Sans MS', sans-serif; font-size: 16px;">
       </div>
-      <div class="form-group">
-        <label for="birth-time">Birth Time:</label>
-        <input type="time" id="birth-time" required>
-      </div>
-    <div class="form-group">
-  <label for="birth-city">Birth City:</label>
-  <input type="text" id="birth-city" placeholder="Start typing a city..." required>
-  <div id="city-dropdown" class="city-dropdown"></div>
-</div>
-      <button type="submit" class="btn">Calculate</button>
-    </form>
-    <div class="results">
-      <h2 class="subtitle">Results:</h2>
-      <pre id="output" class="output-box"></pre>
-    </div>
-  </main>
-  <script>
-swe.set_ephe_path("/:ephe:/");
-
-    document.getElementById('birth-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
       
-      const output = document.getElementById('output');
-      output.textContent = 'Loading...';
-
-      try {
-        const dateInput = document.getElementById('birth-date').value;
-        const timeInput = document.getElementById('birth-time').value;
-        const city = document.getElementById('birth-city').value;
-
-        // Geocode the city to get coordinates
-        const geoResponse = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(city)}&format=json&limit=1`);
-        const geoData = await geoResponse.json();
-        
-        if (!geoData || geoData.length === 0) {
-          output.textContent = 'City not found. Please try again with a different format (e.g. "Los Angeles, CA" or "London, UK")';
-          return;
-        }
-
-        const lat = parseFloat(geoData[0].lat);
-        const lon = parseFloat(geoData[0].lon);
-        const locationName = geoData[0].display_name;
-
-        const [year, month, day] = dateInput.split('-').map(Number);
-        const [hour, minute] = timeInput.split(':').map(Number);
-        const decimalTime = hour + (minute / 60);
-
-        const jd = swe.utc_to_jd(year, month, day, decimalTime, 0, 0);
-
-        const planets = [
-          { name: 'Sun', id: swe.SUN },
-          { name: 'Moon', id: swe.MOON },
-          { name: 'Mercury', id: swe.MERCURY },
-          { name: 'Venus', id: swe.VENUS },
-          { name: 'Mars', id: swe.MARS },
-          { name: 'Jupiter', id: swe.JUPITER },
-          { name: 'Saturn', id: swe.SATURN },
-          { name: 'Uranus', id: swe.URANUS },
-          { name: 'Neptune', id: swe.NEPTUNE },
-          { name: 'Pluto', id: swe.PLUTO }
-        ];
-
-        const signs = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"];
-
-        let result = `Location: ${locationName}\nCoordinates: ${lat.toFixed(4)}°, ${lon.toFixed(4)}°\n`;
-        result += `Julian Day: ${jd.toFixed(5)}\n\n`;
-
-        for (const planet of planets) {
-          const calc = swe.calc_ut(jd, planet.id);
-          const deg = calc.longitude % 360;
-          const sign = signs[Math.floor(deg / 30)];
-          const degInSign = deg % 30;
-          result += `${planet.name}: ${sign} ${degInSign.toFixed(2)}°\n`;
-        }
-
-        // Rising Sign
-        const houses = swe.houses(jd, lat, lon, 'P');
-        const asc = houses.ascendant % 360;
-        const risingSign = signs[Math.floor(asc / 30)];
-        const ascDegInSign = asc % 30;
-        result += `\nRising Sign: ${risingSign} ${ascDegInSign.toFixed(2)}°`;
-
-        output.textContent = result;
-      } catch (error) {
-        output.textContent = `Error: ${error.message}`;
-        console.error(error);
-      }
-    });
-
-
+      <div class="form-group" style="margin-top: 20px;">
+        <label for="birth-time" style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Birth Time:</label>
+        <input type="time" id="birth-time" required style="width: 100%; padding: 10px; border-radius: 10px; border: 2px solid #AE4169; font-family: 'Comic Sans MS', sans-serif; font-size: 16px;">
+      </div>
+      
+      <div class="form-group" style="margin-top: 20px;">
+        <label for="birth-city" style="display: block; margin-bottom: 8px; font-size: 1.1rem;">Birth City:</label>
+        <input type="text" id="birth-city" placeholder="Start typing a city..." required style="width: 100%; padding: 10px; border-radius: 10px; border: 2px solid #AE4169; font-family: 'Comic Sans MS', sans-serif; font-size: 16px;">
+        <div id="city-dropdown" class="city-dropdown"></div>
+      </div>
+      
+      <button type="submit" id="get-horoscope" style="margin-top: 30px; width: 100%;">Calculate My Chart ✨</button>
+    </form>
     
-        <a href="index.html" class="back-home">Back to Home</a>
+    <div id="results" style="margin-top: 40px; display: none;">
+      <h2 class="glowing-heading" style="font-size: 2rem;">Your Birth Chart</h2>
+      <div id="output" class="crystal-ball" style="width: 100%; height: auto; min-height: 300px; border-radius: 20px; padding: 30px; text-align: left; white-space: pre-wrap; font-size: 1rem; line-height: 1.8;"></div>
     </div>
-
-    <script src="star-cursor.js"></script>
-    
-<footer>
+  </div>
+  
+  <a href="index.html" class="back-home">← Back to Home</a>
+  
+  <footer>
     <p>Powered by Kiki's World</p>
-</footer>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweph@0.3.1/dist/sweph.min.js"></script>
+  <script src="birthchart.js"></script>
+  <script src="cursor.js"></script>
 </body>
 </html>
 
