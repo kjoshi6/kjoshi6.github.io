@@ -9,7 +9,6 @@
 <body>
   <main class="main">
     <h1 class="title">Birth Chart Calculator</h1>
-
     <form id="birth-form" class="form">
       <div class="form-group">
         <label for="birth-date">Birth Date:</label>
@@ -20,71 +19,88 @@
         <input type="time" id="birth-time" required>
       </div>
       <div class="form-group">
-        <label for="latitude">Latitude:</label>
-        <input type="number" id="latitude" placeholder="e.g. 40.7128" required>
-      </div>
-      <div class="form-group">
-        <label for="longitude">Longitude:</label>
-        <input type="number" id="longitude" placeholder="e.g. -74.0060" required>
+        <label for="birth-city">Birth City:</label>
+        <input type="text" id="birth-city" placeholder="e.g. New York, NY" required>
       </div>
       <button type="submit" class="btn">Calculate</button>
     </form>
-
     <div class="results">
       <h2 class="subtitle">Results:</h2>
       <pre id="output" class="output-box"></pre>
     </div>
   </main>
-
   <script>
     const swe = new sweph();
-    swe.set_ephe_path("ephe"); // You must host the .se1 files in this folder
+    swe.set_ephe_path("/ephe");
 
     document.getElementById('birth-form').addEventListener('submit', async (e) => {
       e.preventDefault();
+      
+      const output = document.getElementById('output');
+      output.textContent = 'Loading...';
 
-      const dateInput = document.getElementById('birth-date').value;
-      const timeInput = document.getElementById('birth-time').value;
-      const lat = parseFloat(document.getElementById('latitude').value);
-      const lon = parseFloat(document.getElementById('longitude').value);
+      try {
+        const dateInput = document.getElementById('birth-date').value;
+        const timeInput = document.getElementById('birth-time').value;
+        const city = document.getElementById('birth-city').value;
 
-      const [year, month, day] = dateInput.split('-').map(Number);
-      const [hour, minute] = timeInput.split(':').map(Number);
-      const decimalTime = hour + (minute / 60);
+        // Geocode the city to get coordinates
+        const geoResponse = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(city)}&format=json&limit=1`);
+        const geoData = await geoResponse.json();
+        
+        if (!geoData || geoData.length === 0) {
+          output.textContent = 'City not found. Please try again with a different format (e.g. "Los Angeles, CA" or "London, UK")';
+          return;
+        }
 
-      const jd = swe.utc_to_jd(year, month, day, decimalTime);
+        const lat = parseFloat(geoData[0].lat);
+        const lon = parseFloat(geoData[0].lon);
+        const locationName = geoData[0].display_name;
 
-      const planets = [
-        { name: 'Sun', id: swe.SUN },
-        { name: 'Moon', id: swe.MOON },
-        { name: 'Mercury', id: swe.MERCURY },
-        { name: 'Venus', id: swe.VENUS },
-        { name: 'Mars', id: swe.MARS },
-        { name: 'Jupiter', id: swe.JUPITER },
-        { name: 'Saturn', id: swe.SATURN },
-        { name: 'Uranus', id: swe.URANUS },
-        { name: 'Neptune', id: swe.NEPTUNE },
-        { name: 'Pluto', id: swe.PLUTO }
-      ];
+        const [year, month, day] = dateInput.split('-').map(Number);
+        const [hour, minute] = timeInput.split(':').map(Number);
+        const decimalTime = hour + (minute / 60);
 
-      const signs = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"];
+        const jd = swe.utc_to_jd(year, month, day, decimalTime, 0, 0);
 
-      let output = `Julian Day: ${jd.toFixed(5)}\n\n`;
+        const planets = [
+          { name: 'Sun', id: swe.SUN },
+          { name: 'Moon', id: swe.MOON },
+          { name: 'Mercury', id: swe.MERCURY },
+          { name: 'Venus', id: swe.VENUS },
+          { name: 'Mars', id: swe.MARS },
+          { name: 'Jupiter', id: swe.JUPITER },
+          { name: 'Saturn', id: swe.SATURN },
+          { name: 'Uranus', id: swe.URANUS },
+          { name: 'Neptune', id: swe.NEPTUNE },
+          { name: 'Pluto', id: swe.PLUTO }
+        ];
 
-      for (const planet of planets) {
-        const result = swe.calc_ut(jd, planet.id);
-        const deg = result.longitude % 360;
-        const sign = signs[Math.floor(deg / 30)];
-        output += `${planet.name}: ${sign} (${deg.toFixed(2)}°)\n`;
+        const signs = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"];
+
+        let result = `Location: ${locationName}\nCoordinates: ${lat.toFixed(4)}°, ${lon.toFixed(4)}°\n`;
+        result += `Julian Day: ${jd.toFixed(5)}\n\n`;
+
+        for (const planet of planets) {
+          const calc = swe.calc_ut(jd, planet.id);
+          const deg = calc.longitude % 360;
+          const sign = signs[Math.floor(deg / 30)];
+          const degInSign = deg % 30;
+          result += `${planet.name}: ${sign} ${degInSign.toFixed(2)}°\n`;
+        }
+
+        // Rising Sign
+        const houses = swe.houses(jd, lat, lon, 'P');
+        const asc = houses.ascendant % 360;
+        const risingSign = signs[Math.floor(asc / 30)];
+        const ascDegInSign = asc % 30;
+        result += `\nRising Sign: ${risingSign} ${ascDegInSign.toFixed(2)}°`;
+
+        output.textContent = result;
+      } catch (error) {
+        output.textContent = `Error: ${error.message}`;
+        console.error(error);
       }
-
-      // Rising Sign
-      const houses = swe.houses(jd, lat, lon, 'P');
-      const asc = houses.ascendant;
-      const risingSign = signs[Math.floor(asc / 30)];
-      output += `\nRising Sign: ${risingSign} (${asc.toFixed(2)}°)`;
-
-      document.getElementById('output').textContent = output;
     });
   </script>
 </body>
