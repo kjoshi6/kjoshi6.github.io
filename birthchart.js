@@ -87,7 +87,7 @@ document.getElementById('birth-form').addEventListener('submit', async (e) => {
   const output = document.getElementById('output');
   const resultsDiv = document.getElementById('results');
   
-  output.textContent = 'Calculating...;
+  output.textContent = 'Calculating;
   resultsDiv.style.display = 'block';
   
   console.log('Form submitted');
