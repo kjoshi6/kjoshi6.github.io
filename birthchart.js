@@ -1,29 +1,75 @@
-// birthchart.js — fixed version, keeps your structure intact
+// birthchart.js — stable version with Swiss Ephemeris + city dropdown
 
 let swe;
 
-// Initialize Swiss Ephemeris properly for browser (async)
+// Initialize Swiss Ephemeris AFTER the library loads
+function waitForSweph() {
+  return new Promise((resolve, reject) => {
+    const check = () => {
+      if (window.sweph) {
+        resolve(window.sweph);
+      } else {
+        setTimeout(check, 100);
+      }
+    };
+    check();
+  });
+}
+
 async function initializeSweph() {
-  console.log("Page loaded, initializing Swiss Ephemeris...");
+  console.log("Initializing Swiss Ephemeris...");
   try {
-    // Wait for WASM module to finish loading
-    swe = await window.sweph;
+    swe = await waitForSweph();
     await swe.swe_set_ephe_path(null);
-    console.log("Swiss Ephemeris initialized successfully 🌟");
+    console.log("✅ Swiss Ephemeris initialized successfully!");
   } catch (error) {
     console.error("Failed to initialize Swiss Ephemeris:", error);
     alert("Error: Swiss Ephemeris not initialized. Please refresh the page.");
   }
 }
 
-// Call the init function on page load
 initializeSweph();
 
-// Handle form submission
+// --- CITY AUTOCOMPLETE ---
+const cityInput = document.getElementById("birth-city");
+const dropdown = document.getElementById("city-dropdown");
+
+cityInput.addEventListener("input", async () => {
+  const query = cityInput.value.trim();
+  if (query.length < 3) {
+    dropdown.innerHTML = "";
+    return;
+  }
+
+  try {
+    const res = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=5`);
+    const data = await res.json();
+
+    dropdown.innerHTML = "";
+    if (data.results) {
+      data.results.forEach((city) => {
+        const div = document.createElement("div");
+        div.textContent = `${city.name}, ${city.country_code}`;
+        div.style.padding = "8px";
+        div.style.cursor = "pointer";
+        div.style.background = "#1c1c1c";
+        div.style.borderBottom = "1px solid #AE4169";
+        div.addEventListener("click", () => {
+          cityInput.value = city.name;
+          dropdown.innerHTML = "";
+        });
+        dropdown.appendChild(div);
+      });
+    }
+  } catch (err) {
+    console.error("City lookup failed:", err);
+  }
+});
+
+// --- FORM HANDLING ---
 document.getElementById("birth-form").addEventListener("submit", async function (e) {
   e.preventDefault();
 
-  // Make sure Swiss Ephemeris is ready before continuing
   if (!swe) {
     alert("Error: Swiss Ephemeris not initialized. Please refresh the page.");
     return;
@@ -47,53 +93,32 @@ document.getElementById("birth-form").addEventListener("submit", async function 
     swe.SE_GREG_CAL
   );
 
-  console.log("Julian day:", jd);
-
   const planets = [
-    swe.SE_SUN,
-    swe.SE_MOON,
-    swe.SE_MERCURY,
-    swe.SE_VENUS,
-    swe.SE_MARS,
-    swe.SE_JUPITER,
-    swe.SE_SATURN,
-    swe.SE_URANUS,
-    swe.SE_NEPTUNE,
-    swe.SE_PLUTO,
-    swe.SE_ASC
+    swe.SE_SUN, swe.SE_MOON, swe.SE_MERCURY, swe.SE_VENUS,
+    swe.SE_MARS, swe.SE_JUPITER, swe.SE_SATURN,
+    swe.SE_URANUS, swe.SE_NEPTUNE, swe.SE_PLUTO, swe.SE_ASC
   ];
 
-  const planetNames = [
-    "Sun",
-    "Moon",
-    "Mercury",
-    "Venus",
-    "Mars",
-    "Jupiter",
-    "Saturn",
-    "Uranus",
-    "Neptune",
-    "Pluto",
-    "Ascendant"
+  const names = [
+    "Sun", "Moon", "Mercury", "Venus", "Mars",
+    "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto", "Ascendant"
   ];
 
-  let output = ` Birth Chart for ${city}\n\n`;
+  let output = `✨ Birth Chart for ${city}\n\n`;
 
-  // Loop through planets and calculate positions
   for (let i = 0; i < planets.length; i++) {
     try {
       const result = await swe.swe_calc_ut(jd, planets[i], swe.SEFLG_SPEED);
       if (result.rc === swe.ERR) {
-        output += `${planetNames[i]}: Error calculating position.\n`;
+        output += `${names[i]}: Error calculating position.\n`;
       } else {
-        output += `${planetNames[i]}: ${result.longitude.toFixed(2)}°\n`;
+        output += `${names[i]}: ${result.longitude.toFixed(2)}°\n`;
       }
     } catch (err) {
-      output += `${planetNames[i]}: Error - ${err.message}\n`;
+      output += `${names[i]}: Error - ${err.message}\n`;
     }
   }
 
-  // Display results
   const resultsDiv = document.getElementById("results");
   const outputDiv = document.getElementById("output");
   outputDiv.textContent = output;
