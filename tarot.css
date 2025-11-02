@@ -1,62 +1,35 @@
-/* Global styling */
+ /* Global styling */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     font-family: 'Comic Sans MS', 'Chalkboard SE', cursive, sans-serif;
-    background: linear-gradient(135deg, #3f1e65, #AE4169, #f3c3d6, #f0ebf1);
-    background-size: 400% 400%;
-    animation: backgroundShift 10s infinite;
+    background: linear-gradient(135deg, 
+#3f1e65, 
+#764ea3, 
+#1D0E2F);
     color: white;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    flex-grow: 1;
 }
-
-/* Background Animation */
-@keyframes backgroundShift {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
 header {
     text-align: center;
-    padding: 20px;
-    margin-top: 20px;
+    padding: 10px;
 }
-
 .glowing-text {
-    color: #f3c3d6;
+    color: #fff;
     font-size: 3rem;
-    text-shadow: 0 0 10px #f3c3d6, 0 0 20px #AE4169, 0 0 30px #AE4169;
-    animation: glow 2s infinite;
+    text-shadow: 0 0 10px 
+#ff00ff, 0 0 20px 
+#ff00ff, 0 0 30px 
+#ff00ff;
 }
-
-/* Heading Glow Animation */
-@keyframes glow {
-    0% {
-        text-shadow: 0 0 10px #f3c3d6, 0 0 20px #AE4169, 0 0 30px #AE4169;
-    }
-    50% {
-        text-shadow: 0 0 20px #f0ebf1, 0 0 30px #3f1e65, 0 0 40px #AE4169;
-    }
-    100% {
-        text-shadow: 0 0 10px #f3c3d6, 0 0 20px #AE4169, 0 0 30px #AE4169;
-    }
-}
-
 #card-container {
     display: flex;
     justify-content: center;
@@ -64,10 +37,7 @@ header {
     width: 100%;
     margin: 30px 0;
     min-height: 300px;
-    flex-wrap: wrap;
-    gap: 20px;
 }
-
 .card {
     width: 150px;
     height: 225px;
@@ -75,127 +45,85 @@ header {
     cursor: pointer;
     transform-style: preserve-3d;
     transition: transform 0.6s;
-    animation: float 3s ease-in-out infinite;
 }
-
-/* Floating animation */
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-.card:hover {
-    transform: scale(1.05) translateY(-5px);
-    filter: drop-shadow(0 0 20px #f3c3d6);
-}
-
-.card.flipped:hover {
-    transform: rotateY(180deg) scale(1.05) translateY(-5px);
-}
-
 .card .front, .card .back {
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border-radius: 15px;
-    border: 2px solid #f3c3d6;
-    box-shadow: 0 0 15px rgba(174, 65, 105, 0.5);
+    border-radius: 8px;
+    border: 2px solid #fff;
 }
-
 .card .front {
     background: url('https://preview.redd.it/look-for-opinions-on-my-2-playing-card-back-designs-look-to-v0-r4rle6ipe3fc1.png?width=640&crop=smart&auto=webp&s=d4f570073deff1e24df650d8369aaaaae3b7ba39') no-repeat center center;
     background-size: cover;
 }
-
 .card .back {
     background: none;
     transform: rotateY(180deg);
     backface-visibility: hidden;
-    border-radius: 15px;
-    border: 2px solid #f3c3d6;
+    border-radius: 8px;
+    border: 2px solid #fff;
     background-size: cover;
-    box-shadow: 0 0 20px rgba(174, 65, 105, 0.7);
 }
-
 .card.flipped {
     transform: rotateY(180deg);
-    animation: none;
 }
-
 #card-info {
     display: none;
     text-align: center;
-    margin: 30px auto;
-    padding: 25px;
-    max-width: 400px;
-    background: radial-gradient(circle, rgba(243, 195, 214, 0.2), rgba(174, 65, 105, 0.3));
-    border-radius: 20px;
-    border: 2px solid #f3c3d6;
-    box-shadow: 0 0 30px rgba(174, 65, 105, 0.6), 0 0 60px rgba(63, 30, 101, 0.4);
-    backdrop-filter: blur(10px);
+    margin-top: 20px;
+    padding: 15px;
+    max-width: 300px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    box-shadow: 0 0 15px 
+#ff00ff;
 }
-
-#card-info h2 {
-    color: #f3c3d6;
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    text-shadow: 0 0 10px #f3c3d6;
-}
-
-#card-info p {
-    color: #f0ebf1;
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
 #card-info.glowing {
-    animation: infoGlow 2s infinite alternate;
+    animation: glow 1s infinite alternate;
 }
-
-@keyframes infoGlow {
+@keyframes glow {
     from {
-        box-shadow: 0 0 20px rgba(174, 65, 105, 0.6), 0 0 40px rgba(63, 30, 101, 0.4);
+        text-shadow: 0 0 10px 
+#ff00ff, 0 0 20px 
+#ff00ff, 0 0 30px 
+#ff00ff;
     }
     to {
-        box-shadow: 0 0 30px rgba(243, 195, 214, 0.8), 0 0 60px rgba(174, 65, 105, 0.6);
+        text-shadow: 0 0 20px 
+#ff00ff, 0 0 30px 
+#ff00ff, 0 0 40px 
+#ff00ff;
     }
 }
-
 /* Back to Home Link */
 .back-home {
     margin-top: 30px;
     display: inline-block;
     padding: 10px 20px;
-    background-color: #AE4169;
+    background-color: 
+#AE4169;
     color: white;
     border-radius: 10px;
     text-decoration: none;
     font-size: 1rem;
     transition: all 0.3s ease;
-    box-shadow: 0 0 10px rgba(174, 65, 105, 0.5);
 }
-
 .back-home:hover {
-    background-color: #692257;
-    box-shadow: 0 0 10px #F3C3D6, 0 0 20px #3f1e65;
-    transform: scale(1.05);
+    background-color: 
+#692257;
+    box-shadow: 0 0 10px 
+#F3C3D6, 0 0 20px 
+#3f1e65;
 }
-
 /* Footer */
 footer {
-    margin-top: auto;
-    padding: 30px;
+    margin-top: 50px;
     font-size: 1rem;
-    color: #f0ebf1;
-    text-align: center;
+    color: 
+#f0ebf1;
 }
-
-/* Sparkle cursor effect */
 .sparkle {
     position: absolute;
     background: rgba(255, 255, 255, 0.8);
@@ -211,7 +139,6 @@ footer {
     transform: scale(0);
     animation: sparkle-animation 1s ease-out forwards;
 }
-
 @keyframes sparkle-animation {
     0% {
         transform: scale(0);
