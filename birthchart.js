@@ -6,8 +6,8 @@ let selectedLocation = null;
 window.addEventListener('load', () => {
   console.log('Page loaded, initializing sweph...');
   try {
-    swe = new sweph();
-    swe.set_ephe_path("/ephe");
+ swe = sweph;
+swe.swe_set_ephe_path(null);
     console.log('Swiss Ephemeris initialized successfully');
   } catch (error) {
     console.error('Error initializing sweph:', error);
