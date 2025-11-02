@@ -77,7 +77,25 @@ document.getElementById("birth-form").addEventListener("submit", async function 
     "Ascendant"
   ];
 
-  let output = `✨ Birth Chart for ${city}\n\n`;
+  let output = ` Birth Chart for ${city}\n\n`;
 
   // Loop through planets and calculate positions
-  for (let i = 0; i < planets.le
+  for (let i = 0; i < planets.length; i++) {
+    try {
+      const result = await swe.swe_calc_ut(jd, planets[i], swe.SEFLG_SPEED);
+      if (result.rc === swe.ERR) {
+        output += `${planetNames[i]}: Error calculating position.\n`;
+      } else {
+        output += `${planetNames[i]}: ${result.longitude.toFixed(2)}°\n`;
+      }
+    } catch (err) {
+      output += `${planetNames[i]}: Error - ${err.message}\n`;
+    }
+  }
+
+  // Display results
+  const resultsDiv = document.getElementById("results");
+  const outputDiv = document.getElementById("output");
+  outputDiv.textContent = output;
+  resultsDiv.style.display = "block";
+});
