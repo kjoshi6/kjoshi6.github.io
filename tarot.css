@@ -110,19 +110,40 @@ header {
     font-size: 1rem;
     transition: all 0.3s ease;
 }
-.back-home:hover {
-    background-color: 
-#692257;
-    box-shadow: 0 0 10px 
-#F3C3D6, 0 0 20px 
-#3f1e65;
+/* Back to Home Link */
+.back-home {
+    margin-top: 30px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #AE4169;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
+
+.back-home:hover {
+    background-color: #692257;
+    box-shadow: 0 0 10px #F3C3D6, 0 0 20px #3f1e65;
+}
+
 /* Footer */
 footer {
     margin-top: 50px;
     font-size: 1rem;
-    color: 
-#f0ebf1;
+    color: #f0ebf1;
+.city-dropdown {
+  display: none;
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 .sparkle {
     position: absolute;
