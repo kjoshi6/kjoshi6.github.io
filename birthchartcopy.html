@@ -3,69 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Birth Chart Test - Kiki's World</title>
+  <title>Birth Chart Calculator - Copy</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    .dropdown {
-      position: relative;
-      width: 100%;
-    }
-
-    .dropdown-menu {
-      position: absolute;
-      background: white;
-      border: 1px solid #ccc;
-      width: 100%;
-      max-height: 150px;
-      overflow-y: auto;
-      display: none;
-      z-index: 100;
-    }
-
-    .dropdown-item {
-      padding: 6px 8px;
-      cursor: pointer;
-    }
-
-    .dropdown-item:hover {
-      background-color: #eee;
-    }
+    .dropdown-item { cursor: pointer; padding: 5px; border-bottom: 1px solid #ccc; }
+    .dropdown-item:hover { background: #f0f0f0; }
+    #city-dropdown { border: 1px solid #ccc; border-radius: 5px; display: none; position: absolute; background: #fff; max-height: 150px; overflow-y: auto; width: calc(100% - 22px); z-index: 100; }
   </style>
 </head>
 <body>
-  <h1 class="glowing-heading">Birth Chart Test (City Lookup)</h1>
-
-  <div style="max-width: 500px; margin: 30px auto; padding: 20px;">
+  <h1>Birth Chart Calculator Copy</h1>
+  
+  <div style="max-width: 500px; margin: auto;">
     <form id="birth-form">
-      <div class="form-group">
-        <label for="birth-date">Birth Date:</label>
-        <input type="date" id="birth-date" required>
-      </div>
-
-      <div class="form-group">
-        <label for="birth-time">Birth Time:</label>
-        <input type="time" id="birth-time" required>
-      </div>
-
-      <div class="form-group dropdown">
-        <label for="city">City:</label>
-        <input type="text" id="city" placeholder="Start typing a city..." required autocomplete="off">
-        <div class="dropdown-menu" id="city-dropdown"></div>
-      </div>
-
-      <button type="submit" id="get-horoscope" style="margin-top: 20px;">Calculate My Chart</button>
+      <label>Birth Date:</label>
+      <input type="date" id="birth-date" required>
+      
+      <label>Birth Time:</label>
+      <input type="time" id="birth-time" required>
+      
+      <label>Birth City:</label>
+      <input type="text" id="birth-city" placeholder="Start typing a city..." required>
+      <div id="city-dropdown"></div>
+      
+      <button type="submit" style="margin-top: 20px;">Calculate</button>
     </form>
-
-    <div id="results" style="margin-top: 40px; display: none;">
-      <h2>Your Birth Chart Data</h2>
-      <pre id="output" style="white-space: pre-wrap; font-size: 0.9rem; line-height: 1.6;"></pre>
+    
+    <div id="results" style="margin-top: 20px; display: none;">
+      <h2>Your Birth Chart</h2>
+      <pre id="output"></pre>
     </div>
   </div>
 
-  <a href="index.html" class="back-home">← Back to Home</a>
-
+  <!-- Browser-ready circular-natal-horoscope-js -->
   <script src="https://cdn.jsdelivr.net/npm/circular-natal-horoscope-js@latest/dist/index.min.js"></script>
   <script src="birthchartcopy.js"></script>
-
 </body>
 </html>
