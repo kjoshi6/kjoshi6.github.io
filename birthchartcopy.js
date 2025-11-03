@@ -1,4 +1,4 @@
-import { Origin, Horoscope } from "https://cdn.jsdelivr.net/npm/circular-natal-horoscope-js@latest/dist/index.min.js";
+const { Origin, Horoscope } = window.CircularNatalHoroscopeJs;
 
 let selectedLocation = null;
 
