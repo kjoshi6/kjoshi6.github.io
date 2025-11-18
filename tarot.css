@@ -1,3 +1,8 @@
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
  /* Global styling */
 * {
     margin: 0;
