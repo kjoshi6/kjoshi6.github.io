@@ -113,20 +113,32 @@ header {
 }
 /* Back to Home Link */
 .back-home {
-    margin-top: 30px;
+    margin: 40px auto 0;
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #AE4169;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #a578ff, #d3b4ff);
     color: white;
-    border-radius: 10px;
+    border-radius: 14px;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 15px rgba(213, 165, 255, 0.6), 
+                0 0 30px rgba(163, 120, 255, 0.4);
     transition: all 0.3s ease;
 }
 
 .back-home:hover {
-    background-color: #692257;
-    box-shadow: 0 0 10px #F3C3D6, 0 0 20px #3f1e65;
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #c39aff, #ede3ff);
+    box-shadow: 0 0 20px rgba(230, 205, 255, 0.8), 
+                0 0 40px rgba(160, 110, 255, 0.6);
+
+}
+
+.menu-container {
+    text-align: center;
+    margin-top: 20px;
 }
 
 /* Footer */
